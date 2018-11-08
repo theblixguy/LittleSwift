@@ -95,7 +95,9 @@ class Sema {
       return try visit(printStmt: expr, scope)
     } else if let expr = expr as? ReturnStatement {
       return try visit(returnStmt: expr, scope)
-    }
+		} else if let expr = expr as? Type {
+			return try visit(type: expr)
+		}
     
     return nil
   }
@@ -180,6 +182,11 @@ class Sema {
     
     return lhs
   }
+	
+	/// Visit a type expression and return the built in type
+	private func visit(type: Type) -> BuiltinType {
+		return mapSwiftTypeToBuiltinType(type) ?? .void
+	}
   
   /// Visit a print statement and type check all of its arguments. At the moment, it only type
   /// checks the first argument, but this function must check all the arguments and ensure they
