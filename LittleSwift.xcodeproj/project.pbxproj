@@ -3,286 +3,1967 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		"LittleSwift::LittleSwiftPackageTests::ProductTarget" /* LittleSwiftPackageTests */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = OBJ_220 /* Build configuration list for PBXAggregateTarget "LittleSwiftPackageTests" */;
+			buildPhases = (
+			);
+			dependencies = (
+				OBJ_223 /* PBXTargetDependency */,
+			);
+			name = LittleSwiftPackageTests;
+			productName = LittleSwiftPackageTests;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		7CC158B121766FC000EEAEBE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC158B021766FC000EEAEBE /* main.swift */; };
+		7C14B99B217FCB6D005CA585 /* Sema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C14B99A217FCB6D005CA585 /* Sema.swift */; };
+		7C14B99F217FCD21005CA585 /* SemaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C14B99E217FCD21005CA585 /* SemaError.swift */; };
+		7C14B9A1217FCEF9005CA585 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C14B9A0217FCEF9005CA585 /* CollectionExtensions.swift */; };
+		OBJ_119 /* Alias.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Alias.swift */; };
+		OBJ_120 /* ArrayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* ArrayType.swift */; };
+		OBJ_121 /* BasicBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* BasicBlock.swift */; };
+		OBJ_122 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* Call.swift */; };
+		OBJ_123 /* Clause.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* Clause.swift */; };
+		OBJ_124 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* Constant.swift */; };
+		OBJ_125 /* DIBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_74 /* DIBuilder.swift */; };
+		OBJ_126 /* FloatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* FloatType.swift */; };
+		OBJ_127 /* Function+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_76 /* Function+Attributes.swift */; };
+		OBJ_128 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* Function.swift */; };
+		OBJ_129 /* FunctionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_78 /* FunctionType.swift */; };
+		OBJ_130 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* Global.swift */; };
+		OBJ_131 /* IRBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* IRBuilder.swift */; };
+		OBJ_132 /* IRGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* IRGlobal.swift */; };
+		OBJ_133 /* IRType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_82 /* IRType.swift */; };
+		OBJ_134 /* IRValue+Kinds.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* IRValue+Kinds.swift */; };
+		OBJ_135 /* IRValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* IRValue.swift */; };
+		OBJ_136 /* Initialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* Initialization.swift */; };
+		OBJ_137 /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* Instruction.swift */; };
+		OBJ_138 /* IntType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* IntType.swift */; };
+		OBJ_139 /* JIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_88 /* JIT.swift */; };
+		OBJ_140 /* LabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_89 /* LabelType.swift */; };
+		OBJ_141 /* Linkage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* Linkage.swift */; };
+		OBJ_142 /* MemoryBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* MemoryBuffer.swift */; };
+		OBJ_143 /* Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* Metadata.swift */; };
+		OBJ_144 /* MetadataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_93 /* MetadataType.swift */; };
+		OBJ_145 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_94 /* Module.swift */; };
+		OBJ_146 /* ObjectFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* ObjectFile.swift */; };
+		OBJ_147 /* OpCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_96 /* OpCode.swift */; };
+		OBJ_148 /* PassManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_97 /* PassManager.swift */; };
+		OBJ_149 /* PhiNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_98 /* PhiNode.swift */; };
+		OBJ_150 /* PointerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_99 /* PointerType.swift */; };
+		OBJ_151 /* StructType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_100 /* StructType.swift */; };
+		OBJ_152 /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_101 /* Switch.swift */; };
+		OBJ_153 /* TargetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_102 /* TargetData.swift */; };
+		OBJ_154 /* TargetMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_103 /* TargetMachine.swift */; };
+		OBJ_155 /* TokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_104 /* TokenType.swift */; };
+		OBJ_156 /* Use.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_105 /* Use.swift */; };
+		OBJ_157 /* VectorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_106 /* VectorType.swift */; };
+		OBJ_158 /* VoidType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_107 /* VoidType.swift */; };
+		OBJ_159 /* X86MMXType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_108 /* X86MMXType.swift */; };
+		OBJ_166 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_109 /* Package.swift */; };
+		OBJ_172 /* Emitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Emitter.swift */; };
+		OBJ_173 /* IRGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* IRGen.swift */; };
+		OBJ_174 /* KotlinEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* KotlinEmitter.swift */; };
+		OBJ_175 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Bundle.swift */; };
+		OBJ_176 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Date.swift */; };
+		OBJ_177 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* StringExtensions.swift */; };
+		OBJ_178 /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Lexer.swift */; };
+		OBJ_179 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* Token.swift */; };
+		OBJ_180 /* Declaration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* Declaration.swift */; };
+		OBJ_181 /* DeclarationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* DeclarationModifier.swift */; };
+		OBJ_182 /* FunctionDeclaration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* FunctionDeclaration.swift */; };
+		OBJ_183 /* FunctionSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* FunctionSignature.swift */; };
+		OBJ_184 /* VariableDeclaration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* VariableDeclaration.swift */; };
+		OBJ_185 /* AssignmentExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* AssignmentExpression.swift */; };
+		OBJ_186 /* BinaryOperatorExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* BinaryOperatorExpression.swift */; };
+		OBJ_187 /* ConditionalExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* ConditionalExpression.swift */; };
+		OBJ_188 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* Expression.swift */; };
+		OBJ_189 /* FunctionCallExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* FunctionCallExpression.swift */; };
+		OBJ_190 /* PropertyAccessExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* PropertyAccessExpression.swift */; };
+		OBJ_191 /* ASTNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* ASTNode.swift */; };
+		OBJ_192 /* BuiltinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* BuiltinType.swift */; };
+		OBJ_193 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* ParseError.swift */; };
+		OBJ_194 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* Parser.swift */; };
+		OBJ_195 /* IfStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* IfStatement.swift */; };
+		OBJ_196 /* PrintStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* PrintStatement.swift */; };
+		OBJ_197 /* ReturnStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* ReturnStatement.swift */; };
+		OBJ_198 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* Statement.swift */; };
+		OBJ_199 /* BoolType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* BoolType.swift */; };
+		OBJ_200 /* FloatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* FloatType.swift */; };
+		OBJ_201 /* IntegerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* IntegerType.swift */; };
+		OBJ_202 /* StringType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* StringType.swift */; };
+		OBJ_203 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* Type.swift */; };
+		OBJ_204 /* ArgumentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* ArgumentType.swift */; };
+		OBJ_205 /* CompileTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* CompileTime.swift */; };
+		OBJ_206 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* File.swift */; };
+		OBJ_207 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Printer.swift */; };
+		OBJ_208 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* Regex.swift */; };
+		OBJ_209 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* main.swift */; };
+		OBJ_211 /* LLVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "LLVM::LLVM::Product" /* LLVM.framework */; };
+		OBJ_218 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_229 /* LittleSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_63 /* LittleSwiftTests.swift */; };
+		OBJ_230 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_64 /* XCTestManifests.swift */; };
+		OBJ_232 /* LLVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "LLVM::LLVM::Product" /* LLVM.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		7CC158AB21766FC000EEAEBE /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
+/* Begin PBXContainerItemProxy section */
+		7C14B993217E58FE005CA585 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "LLVM::LLVM";
+			remoteInfo = LLVM;
 		};
-/* End PBXCopyFilesBuildPhase section */
+		7C14B994217E5901005CA585 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "LittleSwift::LittleSwift";
+			remoteInfo = LittleSwift;
+		};
+		7C14B995217E5901005CA585 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "LLVM::LLVM";
+			remoteInfo = LLVM;
+		};
+		7C14B996217E5901005CA585 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "LittleSwift::LittleSwiftTests";
+			remoteInfo = LittleSwiftTests;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7CC158AD21766FC000EEAEBE /* LittleSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LittleSwift; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CC158B021766FC000EEAEBE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		7C14B99A217FCB6D005CA585 /* Sema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sema.swift; sourceTree = "<group>"; };
+		7C14B99E217FCD21005CA585 /* SemaError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemaError.swift; sourceTree = "<group>"; };
+		7C14B9A0217FCEF9005CA585 /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
+		"LLVM::LLVM::Product" /* LLVM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LLVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"LittleSwift::LittleSwift::Product" /* LittleSwift */ = {isa = PBXFileReference; lastKnownFileType = text; path = LittleSwift; sourceTree = BUILT_PRODUCTS_DIR; };
+		"LittleSwift::LittleSwiftTests::Product" /* LittleSwiftTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = LittleSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_10 /* Emitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emitter.swift; sourceTree = "<group>"; };
+		OBJ_100 /* StructType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructType.swift; sourceTree = "<group>"; };
+		OBJ_101 /* Switch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
+		OBJ_102 /* TargetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetData.swift; sourceTree = "<group>"; };
+		OBJ_103 /* TargetMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetMachine.swift; sourceTree = "<group>"; };
+		OBJ_104 /* TokenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenType.swift; sourceTree = "<group>"; };
+		OBJ_105 /* Use.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Use.swift; sourceTree = "<group>"; };
+		OBJ_106 /* VectorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorType.swift; sourceTree = "<group>"; };
+		OBJ_107 /* VoidType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidType.swift; sourceTree = "<group>"; };
+		OBJ_108 /* X86MMXType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X86MMXType.swift; sourceTree = "<group>"; };
+		OBJ_109 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/suyashsrijan/Documents/Xcode/LittleSwift/LittleSwift/.build/checkouts/LLVMSwift.git-3678190908740284445/Package.swift"; sourceTree = "<group>"; };
+		OBJ_13 /* IRGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRGen.swift; sourceTree = "<group>"; };
+		OBJ_16 /* KotlinEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KotlinEmitter.swift; sourceTree = "<group>"; };
+		OBJ_18 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		OBJ_19 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		OBJ_20 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		OBJ_22 /* Lexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
+		OBJ_23 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		OBJ_26 /* Declaration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Declaration.swift; sourceTree = "<group>"; };
+		OBJ_27 /* DeclarationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclarationModifier.swift; sourceTree = "<group>"; };
+		OBJ_28 /* FunctionDeclaration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionDeclaration.swift; sourceTree = "<group>"; };
+		OBJ_29 /* FunctionSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionSignature.swift; sourceTree = "<group>"; };
+		OBJ_30 /* VariableDeclaration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableDeclaration.swift; sourceTree = "<group>"; };
+		OBJ_32 /* AssignmentExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentExpression.swift; sourceTree = "<group>"; };
+		OBJ_33 /* BinaryOperatorExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryOperatorExpression.swift; sourceTree = "<group>"; };
+		OBJ_34 /* ConditionalExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalExpression.swift; sourceTree = "<group>"; };
+		OBJ_35 /* Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
+		OBJ_36 /* FunctionCallExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionCallExpression.swift; sourceTree = "<group>"; };
+		OBJ_37 /* PropertyAccessExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyAccessExpression.swift; sourceTree = "<group>"; };
+		OBJ_39 /* ASTNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTNode.swift; sourceTree = "<group>"; };
+		OBJ_40 /* BuiltinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuiltinType.swift; sourceTree = "<group>"; };
+		OBJ_41 /* ParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
+		OBJ_42 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		OBJ_44 /* IfStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfStatement.swift; sourceTree = "<group>"; };
+		OBJ_45 /* PrintStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintStatement.swift; sourceTree = "<group>"; };
+		OBJ_46 /* ReturnStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnStatement.swift; sourceTree = "<group>"; };
+		OBJ_47 /* Statement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
+		OBJ_49 /* BoolType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolType.swift; sourceTree = "<group>"; };
+		OBJ_50 /* FloatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatType.swift; sourceTree = "<group>"; };
+		OBJ_51 /* IntegerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerType.swift; sourceTree = "<group>"; };
+		OBJ_52 /* StringType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringType.swift; sourceTree = "<group>"; };
+		OBJ_53 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
+		OBJ_55 /* ArgumentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentType.swift; sourceTree = "<group>"; };
+		OBJ_56 /* CompileTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompileTime.swift; sourceTree = "<group>"; };
+		OBJ_57 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		OBJ_58 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
+		OBJ_59 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_60 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		OBJ_63 /* LittleSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleSwiftTests.swift; sourceTree = "<group>"; };
+		OBJ_64 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		OBJ_68 /* Alias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alias.swift; sourceTree = "<group>"; };
+		OBJ_69 /* ArrayType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayType.swift; sourceTree = "<group>"; };
+		OBJ_70 /* BasicBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBlock.swift; sourceTree = "<group>"; };
+		OBJ_71 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
+		OBJ_72 /* Clause.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clause.swift; sourceTree = "<group>"; };
+		OBJ_73 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		OBJ_74 /* DIBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIBuilder.swift; sourceTree = "<group>"; };
+		OBJ_75 /* FloatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatType.swift; sourceTree = "<group>"; };
+		OBJ_76 /* Function+Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Function+Attributes.swift"; sourceTree = "<group>"; };
+		OBJ_77 /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
+		OBJ_78 /* FunctionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionType.swift; sourceTree = "<group>"; };
+		OBJ_79 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		OBJ_80 /* IRBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRBuilder.swift; sourceTree = "<group>"; };
+		OBJ_81 /* IRGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRGlobal.swift; sourceTree = "<group>"; };
+		OBJ_82 /* IRType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRType.swift; sourceTree = "<group>"; };
+		OBJ_83 /* IRValue+Kinds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IRValue+Kinds.swift"; sourceTree = "<group>"; };
+		OBJ_84 /* IRValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRValue.swift; sourceTree = "<group>"; };
+		OBJ_85 /* Initialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initialization.swift; sourceTree = "<group>"; };
+		OBJ_86 /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
+		OBJ_87 /* IntType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntType.swift; sourceTree = "<group>"; };
+		OBJ_88 /* JIT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JIT.swift; sourceTree = "<group>"; };
+		OBJ_89 /* LabelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelType.swift; sourceTree = "<group>"; };
+		OBJ_90 /* Linkage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Linkage.swift; sourceTree = "<group>"; };
+		OBJ_91 /* MemoryBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryBuffer.swift; sourceTree = "<group>"; };
+		OBJ_92 /* Metadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metadata.swift; sourceTree = "<group>"; };
+		OBJ_93 /* MetadataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataType.swift; sourceTree = "<group>"; };
+		OBJ_94 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
+		OBJ_95 /* ObjectFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectFile.swift; sourceTree = "<group>"; };
+		OBJ_96 /* OpCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpCode.swift; sourceTree = "<group>"; };
+		OBJ_97 /* PassManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassManager.swift; sourceTree = "<group>"; };
+		OBJ_98 /* PhiNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhiNode.swift; sourceTree = "<group>"; };
+		OBJ_99 /* PointerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7CC158AA21766FC000EEAEBE /* Frameworks */ = {
+		OBJ_160 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_210 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_211 /* LLVM.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_231 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_232 /* LLVM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7CC158A421766FC000EEAEBE = {
+		7C14B997217FCB43005CA585 /* Sema */ = {
 			isa = PBXGroup;
 			children = (
-				7CC158AF21766FC000EEAEBE /* LittleSwift */,
-				7CC158AE21766FC000EEAEBE /* Products */,
+				7C14B99A217FCB6D005CA585 /* Sema.swift */,
+				7C14B99E217FCD21005CA585 /* SemaError.swift */,
 			);
+			path = Sema;
 			sourceTree = "<group>";
 		};
-		7CC158AE21766FC000EEAEBE /* Products */ = {
+		OBJ_11 /* IRGen */ = {
 			isa = PBXGroup;
 			children = (
-				7CC158AD21766FC000EEAEBE /* LittleSwift */,
+				OBJ_13 /* IRGen.swift */,
+			);
+			path = IRGen;
+			sourceTree = "<group>";
+		};
+		OBJ_110 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"LLVM::LLVM::Product" /* LLVM.framework */,
+				"LittleSwift::LittleSwiftTests::Product" /* LittleSwiftTests.xctest */,
+				"LittleSwift::LittleSwift::Product" /* LittleSwift */,
 			);
 			name = Products;
-			sourceTree = "<group>";
+			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		7CC158AF21766FC000EEAEBE /* LittleSwift */ = {
+		OBJ_14 /* Language */ = {
 			isa = PBXGroup;
 			children = (
-				7CC158B021766FC000EEAEBE /* main.swift */,
+				OBJ_15 /* Kotlin */,
 			);
-			path = LittleSwift;
+			path = Language;
+			sourceTree = "<group>";
+		};
+		OBJ_15 /* Kotlin */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_16 /* KotlinEmitter.swift */,
+			);
+			path = Kotlin;
+			sourceTree = "<group>";
+		};
+		OBJ_17 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_18 /* Bundle.swift */,
+				OBJ_19 /* Date.swift */,
+				OBJ_20 /* StringExtensions.swift */,
+				7C14B9A0217FCEF9005CA585 /* CollectionExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		OBJ_21 /* Lexer */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_22 /* Lexer.swift */,
+				OBJ_23 /* Token.swift */,
+			);
+			path = Lexer;
+			sourceTree = "<group>";
+		};
+		OBJ_24 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_41 /* ParseError.swift */,
+				OBJ_42 /* Parser.swift */,
+				OBJ_25 /* Declaration */,
+				OBJ_31 /* Expression */,
+				OBJ_38 /* Node */,
+				OBJ_43 /* Statement */,
+				OBJ_48 /* Type */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		OBJ_25 /* Declaration */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_26 /* Declaration.swift */,
+				OBJ_27 /* DeclarationModifier.swift */,
+				OBJ_28 /* FunctionDeclaration.swift */,
+				OBJ_29 /* FunctionSignature.swift */,
+				OBJ_30 /* VariableDeclaration.swift */,
+			);
+			path = Declaration;
+			sourceTree = "<group>";
+		};
+		OBJ_31 /* Expression */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_32 /* AssignmentExpression.swift */,
+				OBJ_33 /* BinaryOperatorExpression.swift */,
+				OBJ_34 /* ConditionalExpression.swift */,
+				OBJ_35 /* Expression.swift */,
+				OBJ_36 /* FunctionCallExpression.swift */,
+				OBJ_37 /* PropertyAccessExpression.swift */,
+			);
+			path = Expression;
+			sourceTree = "<group>";
+		};
+		OBJ_38 /* Node */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_39 /* ASTNode.swift */,
+			);
+			path = Node;
+			sourceTree = "<group>";
+		};
+		OBJ_43 /* Statement */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_44 /* IfStatement.swift */,
+				OBJ_45 /* PrintStatement.swift */,
+				OBJ_46 /* ReturnStatement.swift */,
+				OBJ_47 /* Statement.swift */,
+			);
+			path = Statement;
+			sourceTree = "<group>";
+		};
+		OBJ_48 /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_40 /* BuiltinType.swift */,
+				OBJ_49 /* BoolType.swift */,
+				OBJ_50 /* FloatType.swift */,
+				OBJ_51 /* IntegerType.swift */,
+				OBJ_52 /* StringType.swift */,
+				OBJ_53 /* Type.swift */,
+			);
+			path = Type;
+			sourceTree = "<group>";
+		};
+		OBJ_5 = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_61 /* Tests */,
+				OBJ_65 /* Dependencies */,
+				OBJ_110 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		OBJ_54 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_55 /* ArgumentType.swift */,
+				OBJ_56 /* CompileTime.swift */,
+				OBJ_57 /* File.swift */,
+				OBJ_58 /* Printer.swift */,
+				OBJ_59 /* Regex.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		OBJ_61 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_62 /* LittleSwiftTests */,
+			);
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_62 /* LittleSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_63 /* LittleSwiftTests.swift */,
+				OBJ_64 /* XCTestManifests.swift */,
+			);
+			name = LittleSwiftTests;
+			path = Tests/LittleSwiftTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_65 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_66 /* LLVM 0.3.0 */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		OBJ_66 /* LLVM 0.3.0 */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_67 /* LLVM */,
+				OBJ_109 /* Package.swift */,
+			);
+			name = "LLVM 0.3.0";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_67 /* LLVM */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_68 /* Alias.swift */,
+				OBJ_69 /* ArrayType.swift */,
+				OBJ_70 /* BasicBlock.swift */,
+				OBJ_71 /* Call.swift */,
+				OBJ_72 /* Clause.swift */,
+				OBJ_73 /* Constant.swift */,
+				OBJ_74 /* DIBuilder.swift */,
+				OBJ_75 /* FloatType.swift */,
+				OBJ_76 /* Function+Attributes.swift */,
+				OBJ_77 /* Function.swift */,
+				OBJ_78 /* FunctionType.swift */,
+				OBJ_79 /* Global.swift */,
+				OBJ_80 /* IRBuilder.swift */,
+				OBJ_81 /* IRGlobal.swift */,
+				OBJ_82 /* IRType.swift */,
+				OBJ_83 /* IRValue+Kinds.swift */,
+				OBJ_84 /* IRValue.swift */,
+				OBJ_85 /* Initialization.swift */,
+				OBJ_86 /* Instruction.swift */,
+				OBJ_87 /* IntType.swift */,
+				OBJ_88 /* JIT.swift */,
+				OBJ_89 /* LabelType.swift */,
+				OBJ_90 /* Linkage.swift */,
+				OBJ_91 /* MemoryBuffer.swift */,
+				OBJ_92 /* Metadata.swift */,
+				OBJ_93 /* MetadataType.swift */,
+				OBJ_94 /* Module.swift */,
+				OBJ_95 /* ObjectFile.swift */,
+				OBJ_96 /* OpCode.swift */,
+				OBJ_97 /* PassManager.swift */,
+				OBJ_98 /* PhiNode.swift */,
+				OBJ_99 /* PointerType.swift */,
+				OBJ_100 /* StructType.swift */,
+				OBJ_101 /* Switch.swift */,
+				OBJ_102 /* TargetData.swift */,
+				OBJ_103 /* TargetMachine.swift */,
+				OBJ_104 /* TokenType.swift */,
+				OBJ_105 /* Use.swift */,
+				OBJ_106 /* VectorType.swift */,
+				OBJ_107 /* VoidType.swift */,
+				OBJ_108 /* X86MMXType.swift */,
+			);
+			name = LLVM;
+			path = ".build/checkouts/LLVMSwift.git-3678190908740284445/Sources/LLVM";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_8 /* LittleSwift */,
+			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_8 /* LittleSwift */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_60 /* main.swift */,
+				OBJ_11 /* IRGen */,
+				OBJ_9 /* Emitter */,
+				OBJ_17 /* Extensions */,
+				OBJ_21 /* Lexer */,
+				OBJ_24 /* Parser */,
+				7C14B997217FCB43005CA585 /* Sema */,
+				OBJ_54 /* Utils */,
+			);
+			name = LittleSwift;
+			path = Sources/LittleSwift;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_9 /* Emitter */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_10 /* Emitter.swift */,
+				OBJ_14 /* Language */,
+			);
+			path = Emitter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7CC158AC21766FC000EEAEBE /* LittleSwift */ = {
+		"LLVM::LLVM" /* LLVM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7CC158B421766FC000EEAEBE /* Build configuration list for PBXNativeTarget "LittleSwift" */;
+			buildConfigurationList = OBJ_115 /* Build configuration list for PBXNativeTarget "LLVM" */;
 			buildPhases = (
-				7CC158A921766FC000EEAEBE /* Sources */,
-				7CC158AA21766FC000EEAEBE /* Frameworks */,
-				7CC158AB21766FC000EEAEBE /* CopyFiles */,
+				OBJ_118 /* Sources */,
+				OBJ_160 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			name = LLVM;
+			productName = LLVM;
+			productReference = "LLVM::LLVM::Product" /* LLVM.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"LLVM::SwiftPMPackageDescription" /* LLVMPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_162 /* Build configuration list for PBXNativeTarget "LLVMPackageDescription" */;
+			buildPhases = (
+				OBJ_165 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LLVMPackageDescription;
+			productName = LLVMPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"LittleSwift::LittleSwift" /* LittleSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_168 /* Build configuration list for PBXNativeTarget "LittleSwift" */;
+			buildPhases = (
+				OBJ_171 /* Sources */,
+				OBJ_210 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_212 /* PBXTargetDependency */,
+			);
 			name = LittleSwift;
 			productName = LittleSwift;
-			productReference = 7CC158AD21766FC000EEAEBE /* LittleSwift */;
+			productReference = "LittleSwift::LittleSwift::Product" /* LittleSwift */;
 			productType = "com.apple.product-type.tool";
+		};
+		"LittleSwift::LittleSwiftTests" /* LittleSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_225 /* Build configuration list for PBXNativeTarget "LittleSwiftTests" */;
+			buildPhases = (
+				OBJ_228 /* Sources */,
+				OBJ_231 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_233 /* PBXTargetDependency */,
+				OBJ_234 /* PBXTargetDependency */,
+			);
+			name = LittleSwiftTests;
+			productName = LittleSwiftTests;
+			productReference = "LittleSwift::LittleSwiftTests::Product" /* LittleSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		"LittleSwift::SwiftPMPackageDescription" /* LittleSwiftPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_214 /* Build configuration list for PBXNativeTarget "LittleSwiftPackageDescription" */;
+			buildPhases = (
+				OBJ_217 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LittleSwiftPackageDescription;
+			productName = LittleSwiftPackageDescription;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		7CC158A521766FC000EEAEBE /* Project object */ = {
+		OBJ_1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
-				ORGANIZATIONNAME = "Suyash Srijan";
-				TargetAttributes = {
-					7CC158AC21766FC000EEAEBE = {
-						CreatedOnToolsVersion = 10.0;
-					};
-				};
+				LastUpgradeCheck = 9999;
 			};
-			buildConfigurationList = 7CC158A821766FC000EEAEBE /* Build configuration list for PBXProject "LittleSwift" */;
-			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "LittleSwift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 7CC158A421766FC000EEAEBE;
-			productRefGroup = 7CC158AE21766FC000EEAEBE /* Products */;
+			mainGroup = OBJ_5;
+			productRefGroup = OBJ_110 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7CC158AC21766FC000EEAEBE /* LittleSwift */,
+				"LLVM::LLVM" /* LLVM */,
+				"LLVM::SwiftPMPackageDescription" /* LLVMPackageDescription */,
+				"LittleSwift::LittleSwift" /* LittleSwift */,
+				"LittleSwift::SwiftPMPackageDescription" /* LittleSwiftPackageDescription */,
+				"LittleSwift::LittleSwiftPackageTests::ProductTarget" /* LittleSwiftPackageTests */,
+				"LittleSwift::LittleSwiftTests" /* LittleSwiftTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7CC158A921766FC000EEAEBE /* Sources */ = {
+		OBJ_118 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				7CC158B121766FC000EEAEBE /* main.swift in Sources */,
+				OBJ_119 /* Alias.swift in Sources */,
+				OBJ_120 /* ArrayType.swift in Sources */,
+				OBJ_121 /* BasicBlock.swift in Sources */,
+				OBJ_122 /* Call.swift in Sources */,
+				OBJ_123 /* Clause.swift in Sources */,
+				OBJ_124 /* Constant.swift in Sources */,
+				OBJ_125 /* DIBuilder.swift in Sources */,
+				OBJ_126 /* FloatType.swift in Sources */,
+				OBJ_127 /* Function+Attributes.swift in Sources */,
+				OBJ_128 /* Function.swift in Sources */,
+				OBJ_129 /* FunctionType.swift in Sources */,
+				OBJ_130 /* Global.swift in Sources */,
+				OBJ_131 /* IRBuilder.swift in Sources */,
+				OBJ_132 /* IRGlobal.swift in Sources */,
+				OBJ_133 /* IRType.swift in Sources */,
+				OBJ_134 /* IRValue+Kinds.swift in Sources */,
+				OBJ_135 /* IRValue.swift in Sources */,
+				OBJ_136 /* Initialization.swift in Sources */,
+				OBJ_137 /* Instruction.swift in Sources */,
+				OBJ_138 /* IntType.swift in Sources */,
+				OBJ_139 /* JIT.swift in Sources */,
+				OBJ_140 /* LabelType.swift in Sources */,
+				OBJ_141 /* Linkage.swift in Sources */,
+				OBJ_142 /* MemoryBuffer.swift in Sources */,
+				OBJ_143 /* Metadata.swift in Sources */,
+				OBJ_144 /* MetadataType.swift in Sources */,
+				OBJ_145 /* Module.swift in Sources */,
+				OBJ_146 /* ObjectFile.swift in Sources */,
+				OBJ_147 /* OpCode.swift in Sources */,
+				OBJ_148 /* PassManager.swift in Sources */,
+				OBJ_149 /* PhiNode.swift in Sources */,
+				OBJ_150 /* PointerType.swift in Sources */,
+				OBJ_151 /* StructType.swift in Sources */,
+				OBJ_152 /* Switch.swift in Sources */,
+				OBJ_153 /* TargetData.swift in Sources */,
+				OBJ_154 /* TargetMachine.swift in Sources */,
+				OBJ_155 /* TokenType.swift in Sources */,
+				OBJ_156 /* Use.swift in Sources */,
+				OBJ_157 /* VectorType.swift in Sources */,
+				OBJ_158 /* VoidType.swift in Sources */,
+				OBJ_159 /* X86MMXType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_165 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_166 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_171 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_172 /* Emitter.swift in Sources */,
+				OBJ_173 /* IRGen.swift in Sources */,
+				OBJ_174 /* KotlinEmitter.swift in Sources */,
+				OBJ_175 /* Bundle.swift in Sources */,
+				OBJ_176 /* Date.swift in Sources */,
+				OBJ_177 /* StringExtensions.swift in Sources */,
+				OBJ_178 /* Lexer.swift in Sources */,
+				OBJ_179 /* Token.swift in Sources */,
+				OBJ_180 /* Declaration.swift in Sources */,
+				OBJ_181 /* DeclarationModifier.swift in Sources */,
+				7C14B99F217FCD21005CA585 /* SemaError.swift in Sources */,
+				OBJ_182 /* FunctionDeclaration.swift in Sources */,
+				OBJ_183 /* FunctionSignature.swift in Sources */,
+				OBJ_184 /* VariableDeclaration.swift in Sources */,
+				OBJ_185 /* AssignmentExpression.swift in Sources */,
+				OBJ_186 /* BinaryOperatorExpression.swift in Sources */,
+				OBJ_187 /* ConditionalExpression.swift in Sources */,
+				OBJ_188 /* Expression.swift in Sources */,
+				OBJ_189 /* FunctionCallExpression.swift in Sources */,
+				OBJ_190 /* PropertyAccessExpression.swift in Sources */,
+				OBJ_191 /* ASTNode.swift in Sources */,
+				OBJ_192 /* BuiltinType.swift in Sources */,
+				OBJ_193 /* ParseError.swift in Sources */,
+				OBJ_194 /* Parser.swift in Sources */,
+				OBJ_195 /* IfStatement.swift in Sources */,
+				OBJ_196 /* PrintStatement.swift in Sources */,
+				OBJ_197 /* ReturnStatement.swift in Sources */,
+				OBJ_198 /* Statement.swift in Sources */,
+				OBJ_199 /* BoolType.swift in Sources */,
+				OBJ_200 /* FloatType.swift in Sources */,
+				7C14B9A1217FCEF9005CA585 /* CollectionExtensions.swift in Sources */,
+				OBJ_201 /* IntegerType.swift in Sources */,
+				OBJ_202 /* StringType.swift in Sources */,
+				OBJ_203 /* Type.swift in Sources */,
+				OBJ_204 /* ArgumentType.swift in Sources */,
+				OBJ_205 /* CompileTime.swift in Sources */,
+				OBJ_206 /* File.swift in Sources */,
+				OBJ_207 /* Printer.swift in Sources */,
+				OBJ_208 /* Regex.swift in Sources */,
+				7C14B99B217FCB6D005CA585 /* Sema.swift in Sources */,
+				OBJ_209 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_217 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_218 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_228 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_229 /* LittleSwiftTests.swift in Sources */,
+				OBJ_230 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		OBJ_212 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "LLVM::LLVM" /* LLVM */;
+			targetProxy = 7C14B993217E58FE005CA585 /* PBXContainerItemProxy */;
+		};
+		OBJ_223 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "LittleSwift::LittleSwiftTests" /* LittleSwiftTests */;
+			targetProxy = 7C14B996217E5901005CA585 /* PBXContainerItemProxy */;
+		};
+		OBJ_233 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "LittleSwift::LittleSwift" /* LittleSwift */;
+			targetProxy = 7C14B994217E5901005CA585 /* PBXContainerItemProxy */;
+		};
+		OBJ_234 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "LLVM::LLVM" /* LLVM */;
+			targetProxy = 7C14B995217E5901005CA585 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		7CC158B221766FC000EEAEBE /* Debug */ = {
+		OBJ_116 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/cllvm.git-3585774048595329012",
+				);
+				INFOPLIST_FILE = LittleSwift.xcodeproj/LLVM_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-I/usr/local/Cellar/llvm@6/6.0.1/include",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-L/usr/local/Cellar/llvm@6/6.0.1/lib",
+					"-lLLVMLTO",
+					"-lLLVMPasses",
+					"-lLLVMObjCARCOpts",
+					"-lLLVMMIRParser",
+					"-lLLVMSymbolize",
+					"-lLLVMDebugInfoPDB",
+					"-lLLVMDebugInfoDWARF",
+					"-lLLVMCoverage",
+					"-lLLVMTableGen",
+					"-lLLVMDlltoolDriver",
+					"-lLLVMOrcJIT",
+					"-lLLVMXCoreDisassembler",
+					"-lLLVMXCoreCodeGen",
+					"-lLLVMXCoreDesc",
+					"-lLLVMXCoreInfo",
+					"-lLLVMXCoreAsmPrinter",
+					"-lLLVMSystemZDisassembler",
+					"-lLLVMSystemZCodeGen",
+					"-lLLVMSystemZAsmParser",
+					"-lLLVMSystemZDesc",
+					"-lLLVMSystemZInfo",
+					"-lLLVMSystemZAsmPrinter",
+					"-lLLVMSparcDisassembler",
+					"-lLLVMSparcCodeGen",
+					"-lLLVMSparcAsmParser",
+					"-lLLVMSparcDesc",
+					"-lLLVMSparcInfo",
+					"-lLLVMSparcAsmPrinter",
+					"-lLLVMPowerPCDisassembler",
+					"-lLLVMPowerPCCodeGen",
+					"-lLLVMPowerPCAsmParser",
+					"-lLLVMPowerPCDesc",
+					"-lLLVMPowerPCInfo",
+					"-lLLVMPowerPCAsmPrinter",
+					"-lLLVMNVPTXCodeGen",
+					"-lLLVMNVPTXDesc",
+					"-lLLVMNVPTXInfo",
+					"-lLLVMNVPTXAsmPrinter",
+					"-lLLVMMSP430CodeGen",
+					"-lLLVMMSP430Desc",
+					"-lLLVMMSP430Info",
+					"-lLLVMMSP430AsmPrinter",
+					"-lLLVMMipsDisassembler",
+					"-lLLVMMipsCodeGen",
+					"-lLLVMMipsAsmParser",
+					"-lLLVMMipsDesc",
+					"-lLLVMMipsInfo",
+					"-lLLVMMipsAsmPrinter",
+					"-lLLVMLanaiDisassembler",
+					"-lLLVMLanaiCodeGen",
+					"-lLLVMLanaiAsmParser",
+					"-lLLVMLanaiDesc",
+					"-lLLVMLanaiAsmPrinter",
+					"-lLLVMLanaiInfo",
+					"-lLLVMHexagonDisassembler",
+					"-lLLVMHexagonCodeGen",
+					"-lLLVMHexagonAsmParser",
+					"-lLLVMHexagonDesc",
+					"-lLLVMHexagonInfo",
+					"-lLLVMBPFDisassembler",
+					"-lLLVMBPFCodeGen",
+					"-lLLVMBPFAsmParser",
+					"-lLLVMBPFDesc",
+					"-lLLVMBPFInfo",
+					"-lLLVMBPFAsmPrinter",
+					"-lLLVMARMDisassembler",
+					"-lLLVMARMCodeGen",
+					"-lLLVMARMAsmParser",
+					"-lLLVMARMDesc",
+					"-lLLVMARMInfo",
+					"-lLLVMARMAsmPrinter",
+					"-lLLVMARMUtils",
+					"-lLLVMAMDGPUDisassembler",
+					"-lLLVMAMDGPUCodeGen",
+					"-lLLVMAMDGPUAsmParser",
+					"-lLLVMAMDGPUDesc",
+					"-lLLVMAMDGPUInfo",
+					"-lLLVMAMDGPUAsmPrinter",
+					"-lLLVMAMDGPUUtils",
+					"-lLLVMAArch64Disassembler",
+					"-lLLVMAArch64CodeGen",
+					"-lLLVMAArch64AsmParser",
+					"-lLLVMAArch64Desc",
+					"-lLLVMAArch64Info",
+					"-lLLVMAArch64AsmPrinter",
+					"-lLLVMAArch64Utils",
+					"-lLLVMObjectYAML",
+					"-lLLVMLibDriver",
+					"-lLLVMOption",
+					"-lLLVMWindowsManifest",
+					"-lLLVMFuzzMutate",
+					"-lLLVMX86Disassembler",
+					"-lLLVMX86AsmParser",
+					"-lLLVMX86CodeGen",
+					"-lLLVMGlobalISel",
+					"-lLLVMSelectionDAG",
+					"-lLLVMAsmPrinter",
+					"-lLLVMDebugInfoCodeView",
+					"-lLLVMDebugInfoMSF",
+					"-lLLVMX86Desc",
+					"-lLLVMMCDisassembler",
+					"-lLLVMX86Info",
+					"-lLLVMX86AsmPrinter",
+					"-lLLVMX86Utils",
+					"-lLLVMMCJIT",
+					"-lLLVMLineEditor",
+					"-lLLVMInterpreter",
+					"-lLLVMExecutionEngine",
+					"-lLLVMRuntimeDyld",
+					"-lLLVMCodeGen",
+					"-lLLVMTarget",
+					"-lLLVMCoroutines",
+					"-lLLVMipo",
+					"-lLLVMInstrumentation",
+					"-lLLVMVectorize",
+					"-lLLVMScalarOpts",
+					"-lLLVMLinker",
+					"-lLLVMIRReader",
+					"-lLLVMAsmParser",
+					"-lLLVMInstCombine",
+					"-lLLVMTransformUtils",
+					"-lLLVMBitWriter",
+					"-lLLVMAnalysis",
+					"-lLLVMProfileData",
+					"-lLLVMObject",
+					"-lLLVMMCParser",
+					"-lLLVMMC",
+					"-lLLVMBitReader",
+					"-lLLVMCore",
+					"-lLLVMBinaryFormat",
+					"-lLLVMSupport",
+					"-lLLVMDemangle",
+					"-lz",
+					"-lcurses",
+					"-lm",
+					"-lxml2",
+					"-lc++",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/llvm@6/6.0.1/include";
+				PRODUCT_BUNDLE_IDENTIFIER = LLVM;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = LLVM;
+			};
+			name = Debug;
+		};
+		OBJ_117 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/cllvm.git-3585774048595329012",
+				);
+				INFOPLIST_FILE = LittleSwift.xcodeproj/LLVM_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-I/usr/local/Cellar/llvm@6/6.0.1/include",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-L/usr/local/Cellar/llvm@6/6.0.1/lib",
+					"-lLLVMLTO",
+					"-lLLVMPasses",
+					"-lLLVMObjCARCOpts",
+					"-lLLVMMIRParser",
+					"-lLLVMSymbolize",
+					"-lLLVMDebugInfoPDB",
+					"-lLLVMDebugInfoDWARF",
+					"-lLLVMCoverage",
+					"-lLLVMTableGen",
+					"-lLLVMDlltoolDriver",
+					"-lLLVMOrcJIT",
+					"-lLLVMXCoreDisassembler",
+					"-lLLVMXCoreCodeGen",
+					"-lLLVMXCoreDesc",
+					"-lLLVMXCoreInfo",
+					"-lLLVMXCoreAsmPrinter",
+					"-lLLVMSystemZDisassembler",
+					"-lLLVMSystemZCodeGen",
+					"-lLLVMSystemZAsmParser",
+					"-lLLVMSystemZDesc",
+					"-lLLVMSystemZInfo",
+					"-lLLVMSystemZAsmPrinter",
+					"-lLLVMSparcDisassembler",
+					"-lLLVMSparcCodeGen",
+					"-lLLVMSparcAsmParser",
+					"-lLLVMSparcDesc",
+					"-lLLVMSparcInfo",
+					"-lLLVMSparcAsmPrinter",
+					"-lLLVMPowerPCDisassembler",
+					"-lLLVMPowerPCCodeGen",
+					"-lLLVMPowerPCAsmParser",
+					"-lLLVMPowerPCDesc",
+					"-lLLVMPowerPCInfo",
+					"-lLLVMPowerPCAsmPrinter",
+					"-lLLVMNVPTXCodeGen",
+					"-lLLVMNVPTXDesc",
+					"-lLLVMNVPTXInfo",
+					"-lLLVMNVPTXAsmPrinter",
+					"-lLLVMMSP430CodeGen",
+					"-lLLVMMSP430Desc",
+					"-lLLVMMSP430Info",
+					"-lLLVMMSP430AsmPrinter",
+					"-lLLVMMipsDisassembler",
+					"-lLLVMMipsCodeGen",
+					"-lLLVMMipsAsmParser",
+					"-lLLVMMipsDesc",
+					"-lLLVMMipsInfo",
+					"-lLLVMMipsAsmPrinter",
+					"-lLLVMLanaiDisassembler",
+					"-lLLVMLanaiCodeGen",
+					"-lLLVMLanaiAsmParser",
+					"-lLLVMLanaiDesc",
+					"-lLLVMLanaiAsmPrinter",
+					"-lLLVMLanaiInfo",
+					"-lLLVMHexagonDisassembler",
+					"-lLLVMHexagonCodeGen",
+					"-lLLVMHexagonAsmParser",
+					"-lLLVMHexagonDesc",
+					"-lLLVMHexagonInfo",
+					"-lLLVMBPFDisassembler",
+					"-lLLVMBPFCodeGen",
+					"-lLLVMBPFAsmParser",
+					"-lLLVMBPFDesc",
+					"-lLLVMBPFInfo",
+					"-lLLVMBPFAsmPrinter",
+					"-lLLVMARMDisassembler",
+					"-lLLVMARMCodeGen",
+					"-lLLVMARMAsmParser",
+					"-lLLVMARMDesc",
+					"-lLLVMARMInfo",
+					"-lLLVMARMAsmPrinter",
+					"-lLLVMARMUtils",
+					"-lLLVMAMDGPUDisassembler",
+					"-lLLVMAMDGPUCodeGen",
+					"-lLLVMAMDGPUAsmParser",
+					"-lLLVMAMDGPUDesc",
+					"-lLLVMAMDGPUInfo",
+					"-lLLVMAMDGPUAsmPrinter",
+					"-lLLVMAMDGPUUtils",
+					"-lLLVMAArch64Disassembler",
+					"-lLLVMAArch64CodeGen",
+					"-lLLVMAArch64AsmParser",
+					"-lLLVMAArch64Desc",
+					"-lLLVMAArch64Info",
+					"-lLLVMAArch64AsmPrinter",
+					"-lLLVMAArch64Utils",
+					"-lLLVMObjectYAML",
+					"-lLLVMLibDriver",
+					"-lLLVMOption",
+					"-lLLVMWindowsManifest",
+					"-lLLVMFuzzMutate",
+					"-lLLVMX86Disassembler",
+					"-lLLVMX86AsmParser",
+					"-lLLVMX86CodeGen",
+					"-lLLVMGlobalISel",
+					"-lLLVMSelectionDAG",
+					"-lLLVMAsmPrinter",
+					"-lLLVMDebugInfoCodeView",
+					"-lLLVMDebugInfoMSF",
+					"-lLLVMX86Desc",
+					"-lLLVMMCDisassembler",
+					"-lLLVMX86Info",
+					"-lLLVMX86AsmPrinter",
+					"-lLLVMX86Utils",
+					"-lLLVMMCJIT",
+					"-lLLVMLineEditor",
+					"-lLLVMInterpreter",
+					"-lLLVMExecutionEngine",
+					"-lLLVMRuntimeDyld",
+					"-lLLVMCodeGen",
+					"-lLLVMTarget",
+					"-lLLVMCoroutines",
+					"-lLLVMipo",
+					"-lLLVMInstrumentation",
+					"-lLLVMVectorize",
+					"-lLLVMScalarOpts",
+					"-lLLVMLinker",
+					"-lLLVMIRReader",
+					"-lLLVMAsmParser",
+					"-lLLVMInstCombine",
+					"-lLLVMTransformUtils",
+					"-lLLVMBitWriter",
+					"-lLLVMAnalysis",
+					"-lLLVMProfileData",
+					"-lLLVMObject",
+					"-lLLVMMCParser",
+					"-lLLVMMC",
+					"-lLLVMBitReader",
+					"-lLLVMCore",
+					"-lLLVMBinaryFormat",
+					"-lLLVMSupport",
+					"-lLLVMDemangle",
+					"-lz",
+					"-lcurses",
+					"-lm",
+					"-lxml2",
+					"-lc++",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/llvm@6/6.0.1/include";
+				PRODUCT_BUNDLE_IDENTIFIER = LLVM;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = LLVM;
+			};
+			name = Release;
+		};
+		OBJ_163 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		OBJ_164 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		OBJ_169 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/cllvm.git-3585774048595329012",
+				);
+				INFOPLIST_FILE = LittleSwift.xcodeproj/LittleSwift_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-I/usr/local/Cellar/llvm@6/6.0.1/include",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-L/usr/local/Cellar/llvm@6/6.0.1/lib",
+					"-lLLVMLTO",
+					"-lLLVMPasses",
+					"-lLLVMObjCARCOpts",
+					"-lLLVMMIRParser",
+					"-lLLVMSymbolize",
+					"-lLLVMDebugInfoPDB",
+					"-lLLVMDebugInfoDWARF",
+					"-lLLVMCoverage",
+					"-lLLVMTableGen",
+					"-lLLVMDlltoolDriver",
+					"-lLLVMOrcJIT",
+					"-lLLVMXCoreDisassembler",
+					"-lLLVMXCoreCodeGen",
+					"-lLLVMXCoreDesc",
+					"-lLLVMXCoreInfo",
+					"-lLLVMXCoreAsmPrinter",
+					"-lLLVMSystemZDisassembler",
+					"-lLLVMSystemZCodeGen",
+					"-lLLVMSystemZAsmParser",
+					"-lLLVMSystemZDesc",
+					"-lLLVMSystemZInfo",
+					"-lLLVMSystemZAsmPrinter",
+					"-lLLVMSparcDisassembler",
+					"-lLLVMSparcCodeGen",
+					"-lLLVMSparcAsmParser",
+					"-lLLVMSparcDesc",
+					"-lLLVMSparcInfo",
+					"-lLLVMSparcAsmPrinter",
+					"-lLLVMPowerPCDisassembler",
+					"-lLLVMPowerPCCodeGen",
+					"-lLLVMPowerPCAsmParser",
+					"-lLLVMPowerPCDesc",
+					"-lLLVMPowerPCInfo",
+					"-lLLVMPowerPCAsmPrinter",
+					"-lLLVMNVPTXCodeGen",
+					"-lLLVMNVPTXDesc",
+					"-lLLVMNVPTXInfo",
+					"-lLLVMNVPTXAsmPrinter",
+					"-lLLVMMSP430CodeGen",
+					"-lLLVMMSP430Desc",
+					"-lLLVMMSP430Info",
+					"-lLLVMMSP430AsmPrinter",
+					"-lLLVMMipsDisassembler",
+					"-lLLVMMipsCodeGen",
+					"-lLLVMMipsAsmParser",
+					"-lLLVMMipsDesc",
+					"-lLLVMMipsInfo",
+					"-lLLVMMipsAsmPrinter",
+					"-lLLVMLanaiDisassembler",
+					"-lLLVMLanaiCodeGen",
+					"-lLLVMLanaiAsmParser",
+					"-lLLVMLanaiDesc",
+					"-lLLVMLanaiAsmPrinter",
+					"-lLLVMLanaiInfo",
+					"-lLLVMHexagonDisassembler",
+					"-lLLVMHexagonCodeGen",
+					"-lLLVMHexagonAsmParser",
+					"-lLLVMHexagonDesc",
+					"-lLLVMHexagonInfo",
+					"-lLLVMBPFDisassembler",
+					"-lLLVMBPFCodeGen",
+					"-lLLVMBPFAsmParser",
+					"-lLLVMBPFDesc",
+					"-lLLVMBPFInfo",
+					"-lLLVMBPFAsmPrinter",
+					"-lLLVMARMDisassembler",
+					"-lLLVMARMCodeGen",
+					"-lLLVMARMAsmParser",
+					"-lLLVMARMDesc",
+					"-lLLVMARMInfo",
+					"-lLLVMARMAsmPrinter",
+					"-lLLVMARMUtils",
+					"-lLLVMAMDGPUDisassembler",
+					"-lLLVMAMDGPUCodeGen",
+					"-lLLVMAMDGPUAsmParser",
+					"-lLLVMAMDGPUDesc",
+					"-lLLVMAMDGPUInfo",
+					"-lLLVMAMDGPUAsmPrinter",
+					"-lLLVMAMDGPUUtils",
+					"-lLLVMAArch64Disassembler",
+					"-lLLVMAArch64CodeGen",
+					"-lLLVMAArch64AsmParser",
+					"-lLLVMAArch64Desc",
+					"-lLLVMAArch64Info",
+					"-lLLVMAArch64AsmPrinter",
+					"-lLLVMAArch64Utils",
+					"-lLLVMObjectYAML",
+					"-lLLVMLibDriver",
+					"-lLLVMOption",
+					"-lLLVMWindowsManifest",
+					"-lLLVMFuzzMutate",
+					"-lLLVMX86Disassembler",
+					"-lLLVMX86AsmParser",
+					"-lLLVMX86CodeGen",
+					"-lLLVMGlobalISel",
+					"-lLLVMSelectionDAG",
+					"-lLLVMAsmPrinter",
+					"-lLLVMDebugInfoCodeView",
+					"-lLLVMDebugInfoMSF",
+					"-lLLVMX86Desc",
+					"-lLLVMMCDisassembler",
+					"-lLLVMX86Info",
+					"-lLLVMX86AsmPrinter",
+					"-lLLVMX86Utils",
+					"-lLLVMMCJIT",
+					"-lLLVMLineEditor",
+					"-lLLVMInterpreter",
+					"-lLLVMExecutionEngine",
+					"-lLLVMRuntimeDyld",
+					"-lLLVMCodeGen",
+					"-lLLVMTarget",
+					"-lLLVMCoroutines",
+					"-lLLVMipo",
+					"-lLLVMInstrumentation",
+					"-lLLVMVectorize",
+					"-lLLVMScalarOpts",
+					"-lLLVMLinker",
+					"-lLLVMIRReader",
+					"-lLLVMAsmParser",
+					"-lLLVMInstCombine",
+					"-lLLVMTransformUtils",
+					"-lLLVMBitWriter",
+					"-lLLVMAnalysis",
+					"-lLLVMProfileData",
+					"-lLLVMObject",
+					"-lLLVMMCParser",
+					"-lLLVMMC",
+					"-lLLVMBitReader",
+					"-lLLVMCore",
+					"-lLLVMBinaryFormat",
+					"-lLLVMSupport",
+					"-lLLVMDemangle",
+					"-lz",
+					"-lcurses",
+					"-lm",
+					"-lxml2",
+					"-lc++",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/llvm@6/6.0.1/include";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = LittleSwift;
+			};
+			name = Debug;
+		};
+		OBJ_170 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/cllvm.git-3585774048595329012",
+				);
+				INFOPLIST_FILE = LittleSwift.xcodeproj/LittleSwift_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-I/usr/local/Cellar/llvm@6/6.0.1/include",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-L/usr/local/Cellar/llvm@6/6.0.1/lib",
+					"-lLLVMLTO",
+					"-lLLVMPasses",
+					"-lLLVMObjCARCOpts",
+					"-lLLVMMIRParser",
+					"-lLLVMSymbolize",
+					"-lLLVMDebugInfoPDB",
+					"-lLLVMDebugInfoDWARF",
+					"-lLLVMCoverage",
+					"-lLLVMTableGen",
+					"-lLLVMDlltoolDriver",
+					"-lLLVMOrcJIT",
+					"-lLLVMXCoreDisassembler",
+					"-lLLVMXCoreCodeGen",
+					"-lLLVMXCoreDesc",
+					"-lLLVMXCoreInfo",
+					"-lLLVMXCoreAsmPrinter",
+					"-lLLVMSystemZDisassembler",
+					"-lLLVMSystemZCodeGen",
+					"-lLLVMSystemZAsmParser",
+					"-lLLVMSystemZDesc",
+					"-lLLVMSystemZInfo",
+					"-lLLVMSystemZAsmPrinter",
+					"-lLLVMSparcDisassembler",
+					"-lLLVMSparcCodeGen",
+					"-lLLVMSparcAsmParser",
+					"-lLLVMSparcDesc",
+					"-lLLVMSparcInfo",
+					"-lLLVMSparcAsmPrinter",
+					"-lLLVMPowerPCDisassembler",
+					"-lLLVMPowerPCCodeGen",
+					"-lLLVMPowerPCAsmParser",
+					"-lLLVMPowerPCDesc",
+					"-lLLVMPowerPCInfo",
+					"-lLLVMPowerPCAsmPrinter",
+					"-lLLVMNVPTXCodeGen",
+					"-lLLVMNVPTXDesc",
+					"-lLLVMNVPTXInfo",
+					"-lLLVMNVPTXAsmPrinter",
+					"-lLLVMMSP430CodeGen",
+					"-lLLVMMSP430Desc",
+					"-lLLVMMSP430Info",
+					"-lLLVMMSP430AsmPrinter",
+					"-lLLVMMipsDisassembler",
+					"-lLLVMMipsCodeGen",
+					"-lLLVMMipsAsmParser",
+					"-lLLVMMipsDesc",
+					"-lLLVMMipsInfo",
+					"-lLLVMMipsAsmPrinter",
+					"-lLLVMLanaiDisassembler",
+					"-lLLVMLanaiCodeGen",
+					"-lLLVMLanaiAsmParser",
+					"-lLLVMLanaiDesc",
+					"-lLLVMLanaiAsmPrinter",
+					"-lLLVMLanaiInfo",
+					"-lLLVMHexagonDisassembler",
+					"-lLLVMHexagonCodeGen",
+					"-lLLVMHexagonAsmParser",
+					"-lLLVMHexagonDesc",
+					"-lLLVMHexagonInfo",
+					"-lLLVMBPFDisassembler",
+					"-lLLVMBPFCodeGen",
+					"-lLLVMBPFAsmParser",
+					"-lLLVMBPFDesc",
+					"-lLLVMBPFInfo",
+					"-lLLVMBPFAsmPrinter",
+					"-lLLVMARMDisassembler",
+					"-lLLVMARMCodeGen",
+					"-lLLVMARMAsmParser",
+					"-lLLVMARMDesc",
+					"-lLLVMARMInfo",
+					"-lLLVMARMAsmPrinter",
+					"-lLLVMARMUtils",
+					"-lLLVMAMDGPUDisassembler",
+					"-lLLVMAMDGPUCodeGen",
+					"-lLLVMAMDGPUAsmParser",
+					"-lLLVMAMDGPUDesc",
+					"-lLLVMAMDGPUInfo",
+					"-lLLVMAMDGPUAsmPrinter",
+					"-lLLVMAMDGPUUtils",
+					"-lLLVMAArch64Disassembler",
+					"-lLLVMAArch64CodeGen",
+					"-lLLVMAArch64AsmParser",
+					"-lLLVMAArch64Desc",
+					"-lLLVMAArch64Info",
+					"-lLLVMAArch64AsmPrinter",
+					"-lLLVMAArch64Utils",
+					"-lLLVMObjectYAML",
+					"-lLLVMLibDriver",
+					"-lLLVMOption",
+					"-lLLVMWindowsManifest",
+					"-lLLVMFuzzMutate",
+					"-lLLVMX86Disassembler",
+					"-lLLVMX86AsmParser",
+					"-lLLVMX86CodeGen",
+					"-lLLVMGlobalISel",
+					"-lLLVMSelectionDAG",
+					"-lLLVMAsmPrinter",
+					"-lLLVMDebugInfoCodeView",
+					"-lLLVMDebugInfoMSF",
+					"-lLLVMX86Desc",
+					"-lLLVMMCDisassembler",
+					"-lLLVMX86Info",
+					"-lLLVMX86AsmPrinter",
+					"-lLLVMX86Utils",
+					"-lLLVMMCJIT",
+					"-lLLVMLineEditor",
+					"-lLLVMInterpreter",
+					"-lLLVMExecutionEngine",
+					"-lLLVMRuntimeDyld",
+					"-lLLVMCodeGen",
+					"-lLLVMTarget",
+					"-lLLVMCoroutines",
+					"-lLLVMipo",
+					"-lLLVMInstrumentation",
+					"-lLLVMVectorize",
+					"-lLLVMScalarOpts",
+					"-lLLVMLinker",
+					"-lLLVMIRReader",
+					"-lLLVMAsmParser",
+					"-lLLVMInstCombine",
+					"-lLLVMTransformUtils",
+					"-lLLVMBitWriter",
+					"-lLLVMAnalysis",
+					"-lLLVMProfileData",
+					"-lLLVMObject",
+					"-lLLVMMCParser",
+					"-lLLVMMC",
+					"-lLLVMBitReader",
+					"-lLLVMCore",
+					"-lLLVMBinaryFormat",
+					"-lLLVMSupport",
+					"-lLLVMDemangle",
+					"-lz",
+					"-lcurses",
+					"-lm",
+					"-lxml2",
+					"-lc++",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/llvm@6/6.0.1/include";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = LittleSwift;
+			};
+			name = Release;
+		};
+		OBJ_215 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4.2 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		OBJ_216 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4.2 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		OBJ_221 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_222 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_226 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/cllvm.git-3585774048595329012",
+				);
+				INFOPLIST_FILE = LittleSwift.xcodeproj/LittleSwiftTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-I/usr/local/Cellar/llvm@6/6.0.1/include",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-L/usr/local/Cellar/llvm@6/6.0.1/lib",
+					"-lLLVMLTO",
+					"-lLLVMPasses",
+					"-lLLVMObjCARCOpts",
+					"-lLLVMMIRParser",
+					"-lLLVMSymbolize",
+					"-lLLVMDebugInfoPDB",
+					"-lLLVMDebugInfoDWARF",
+					"-lLLVMCoverage",
+					"-lLLVMTableGen",
+					"-lLLVMDlltoolDriver",
+					"-lLLVMOrcJIT",
+					"-lLLVMXCoreDisassembler",
+					"-lLLVMXCoreCodeGen",
+					"-lLLVMXCoreDesc",
+					"-lLLVMXCoreInfo",
+					"-lLLVMXCoreAsmPrinter",
+					"-lLLVMSystemZDisassembler",
+					"-lLLVMSystemZCodeGen",
+					"-lLLVMSystemZAsmParser",
+					"-lLLVMSystemZDesc",
+					"-lLLVMSystemZInfo",
+					"-lLLVMSystemZAsmPrinter",
+					"-lLLVMSparcDisassembler",
+					"-lLLVMSparcCodeGen",
+					"-lLLVMSparcAsmParser",
+					"-lLLVMSparcDesc",
+					"-lLLVMSparcInfo",
+					"-lLLVMSparcAsmPrinter",
+					"-lLLVMPowerPCDisassembler",
+					"-lLLVMPowerPCCodeGen",
+					"-lLLVMPowerPCAsmParser",
+					"-lLLVMPowerPCDesc",
+					"-lLLVMPowerPCInfo",
+					"-lLLVMPowerPCAsmPrinter",
+					"-lLLVMNVPTXCodeGen",
+					"-lLLVMNVPTXDesc",
+					"-lLLVMNVPTXInfo",
+					"-lLLVMNVPTXAsmPrinter",
+					"-lLLVMMSP430CodeGen",
+					"-lLLVMMSP430Desc",
+					"-lLLVMMSP430Info",
+					"-lLLVMMSP430AsmPrinter",
+					"-lLLVMMipsDisassembler",
+					"-lLLVMMipsCodeGen",
+					"-lLLVMMipsAsmParser",
+					"-lLLVMMipsDesc",
+					"-lLLVMMipsInfo",
+					"-lLLVMMipsAsmPrinter",
+					"-lLLVMLanaiDisassembler",
+					"-lLLVMLanaiCodeGen",
+					"-lLLVMLanaiAsmParser",
+					"-lLLVMLanaiDesc",
+					"-lLLVMLanaiAsmPrinter",
+					"-lLLVMLanaiInfo",
+					"-lLLVMHexagonDisassembler",
+					"-lLLVMHexagonCodeGen",
+					"-lLLVMHexagonAsmParser",
+					"-lLLVMHexagonDesc",
+					"-lLLVMHexagonInfo",
+					"-lLLVMBPFDisassembler",
+					"-lLLVMBPFCodeGen",
+					"-lLLVMBPFAsmParser",
+					"-lLLVMBPFDesc",
+					"-lLLVMBPFInfo",
+					"-lLLVMBPFAsmPrinter",
+					"-lLLVMARMDisassembler",
+					"-lLLVMARMCodeGen",
+					"-lLLVMARMAsmParser",
+					"-lLLVMARMDesc",
+					"-lLLVMARMInfo",
+					"-lLLVMARMAsmPrinter",
+					"-lLLVMARMUtils",
+					"-lLLVMAMDGPUDisassembler",
+					"-lLLVMAMDGPUCodeGen",
+					"-lLLVMAMDGPUAsmParser",
+					"-lLLVMAMDGPUDesc",
+					"-lLLVMAMDGPUInfo",
+					"-lLLVMAMDGPUAsmPrinter",
+					"-lLLVMAMDGPUUtils",
+					"-lLLVMAArch64Disassembler",
+					"-lLLVMAArch64CodeGen",
+					"-lLLVMAArch64AsmParser",
+					"-lLLVMAArch64Desc",
+					"-lLLVMAArch64Info",
+					"-lLLVMAArch64AsmPrinter",
+					"-lLLVMAArch64Utils",
+					"-lLLVMObjectYAML",
+					"-lLLVMLibDriver",
+					"-lLLVMOption",
+					"-lLLVMWindowsManifest",
+					"-lLLVMFuzzMutate",
+					"-lLLVMX86Disassembler",
+					"-lLLVMX86AsmParser",
+					"-lLLVMX86CodeGen",
+					"-lLLVMGlobalISel",
+					"-lLLVMSelectionDAG",
+					"-lLLVMAsmPrinter",
+					"-lLLVMDebugInfoCodeView",
+					"-lLLVMDebugInfoMSF",
+					"-lLLVMX86Desc",
+					"-lLLVMMCDisassembler",
+					"-lLLVMX86Info",
+					"-lLLVMX86AsmPrinter",
+					"-lLLVMX86Utils",
+					"-lLLVMMCJIT",
+					"-lLLVMLineEditor",
+					"-lLLVMInterpreter",
+					"-lLLVMExecutionEngine",
+					"-lLLVMRuntimeDyld",
+					"-lLLVMCodeGen",
+					"-lLLVMTarget",
+					"-lLLVMCoroutines",
+					"-lLLVMipo",
+					"-lLLVMInstrumentation",
+					"-lLLVMVectorize",
+					"-lLLVMScalarOpts",
+					"-lLLVMLinker",
+					"-lLLVMIRReader",
+					"-lLLVMAsmParser",
+					"-lLLVMInstCombine",
+					"-lLLVMTransformUtils",
+					"-lLLVMBitWriter",
+					"-lLLVMAnalysis",
+					"-lLLVMProfileData",
+					"-lLLVMObject",
+					"-lLLVMMCParser",
+					"-lLLVMMC",
+					"-lLLVMBitReader",
+					"-lLLVMCore",
+					"-lLLVMBinaryFormat",
+					"-lLLVMSupport",
+					"-lLLVMDemangle",
+					"-lz",
+					"-lcurses",
+					"-lm",
+					"-lxml2",
+					"-lc++",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/llvm@6/6.0.1/include";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = LittleSwiftTests;
+			};
+			name = Debug;
+		};
+		OBJ_227 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/cllvm.git-3585774048595329012",
+				);
+				INFOPLIST_FILE = LittleSwift.xcodeproj/LittleSwiftTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-I/usr/local/Cellar/llvm@6/6.0.1/include",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-L/usr/local/Cellar/llvm@6/6.0.1/lib",
+					"-lLLVMLTO",
+					"-lLLVMPasses",
+					"-lLLVMObjCARCOpts",
+					"-lLLVMMIRParser",
+					"-lLLVMSymbolize",
+					"-lLLVMDebugInfoPDB",
+					"-lLLVMDebugInfoDWARF",
+					"-lLLVMCoverage",
+					"-lLLVMTableGen",
+					"-lLLVMDlltoolDriver",
+					"-lLLVMOrcJIT",
+					"-lLLVMXCoreDisassembler",
+					"-lLLVMXCoreCodeGen",
+					"-lLLVMXCoreDesc",
+					"-lLLVMXCoreInfo",
+					"-lLLVMXCoreAsmPrinter",
+					"-lLLVMSystemZDisassembler",
+					"-lLLVMSystemZCodeGen",
+					"-lLLVMSystemZAsmParser",
+					"-lLLVMSystemZDesc",
+					"-lLLVMSystemZInfo",
+					"-lLLVMSystemZAsmPrinter",
+					"-lLLVMSparcDisassembler",
+					"-lLLVMSparcCodeGen",
+					"-lLLVMSparcAsmParser",
+					"-lLLVMSparcDesc",
+					"-lLLVMSparcInfo",
+					"-lLLVMSparcAsmPrinter",
+					"-lLLVMPowerPCDisassembler",
+					"-lLLVMPowerPCCodeGen",
+					"-lLLVMPowerPCAsmParser",
+					"-lLLVMPowerPCDesc",
+					"-lLLVMPowerPCInfo",
+					"-lLLVMPowerPCAsmPrinter",
+					"-lLLVMNVPTXCodeGen",
+					"-lLLVMNVPTXDesc",
+					"-lLLVMNVPTXInfo",
+					"-lLLVMNVPTXAsmPrinter",
+					"-lLLVMMSP430CodeGen",
+					"-lLLVMMSP430Desc",
+					"-lLLVMMSP430Info",
+					"-lLLVMMSP430AsmPrinter",
+					"-lLLVMMipsDisassembler",
+					"-lLLVMMipsCodeGen",
+					"-lLLVMMipsAsmParser",
+					"-lLLVMMipsDesc",
+					"-lLLVMMipsInfo",
+					"-lLLVMMipsAsmPrinter",
+					"-lLLVMLanaiDisassembler",
+					"-lLLVMLanaiCodeGen",
+					"-lLLVMLanaiAsmParser",
+					"-lLLVMLanaiDesc",
+					"-lLLVMLanaiAsmPrinter",
+					"-lLLVMLanaiInfo",
+					"-lLLVMHexagonDisassembler",
+					"-lLLVMHexagonCodeGen",
+					"-lLLVMHexagonAsmParser",
+					"-lLLVMHexagonDesc",
+					"-lLLVMHexagonInfo",
+					"-lLLVMBPFDisassembler",
+					"-lLLVMBPFCodeGen",
+					"-lLLVMBPFAsmParser",
+					"-lLLVMBPFDesc",
+					"-lLLVMBPFInfo",
+					"-lLLVMBPFAsmPrinter",
+					"-lLLVMARMDisassembler",
+					"-lLLVMARMCodeGen",
+					"-lLLVMARMAsmParser",
+					"-lLLVMARMDesc",
+					"-lLLVMARMInfo",
+					"-lLLVMARMAsmPrinter",
+					"-lLLVMARMUtils",
+					"-lLLVMAMDGPUDisassembler",
+					"-lLLVMAMDGPUCodeGen",
+					"-lLLVMAMDGPUAsmParser",
+					"-lLLVMAMDGPUDesc",
+					"-lLLVMAMDGPUInfo",
+					"-lLLVMAMDGPUAsmPrinter",
+					"-lLLVMAMDGPUUtils",
+					"-lLLVMAArch64Disassembler",
+					"-lLLVMAArch64CodeGen",
+					"-lLLVMAArch64AsmParser",
+					"-lLLVMAArch64Desc",
+					"-lLLVMAArch64Info",
+					"-lLLVMAArch64AsmPrinter",
+					"-lLLVMAArch64Utils",
+					"-lLLVMObjectYAML",
+					"-lLLVMLibDriver",
+					"-lLLVMOption",
+					"-lLLVMWindowsManifest",
+					"-lLLVMFuzzMutate",
+					"-lLLVMX86Disassembler",
+					"-lLLVMX86AsmParser",
+					"-lLLVMX86CodeGen",
+					"-lLLVMGlobalISel",
+					"-lLLVMSelectionDAG",
+					"-lLLVMAsmPrinter",
+					"-lLLVMDebugInfoCodeView",
+					"-lLLVMDebugInfoMSF",
+					"-lLLVMX86Desc",
+					"-lLLVMMCDisassembler",
+					"-lLLVMX86Info",
+					"-lLLVMX86AsmPrinter",
+					"-lLLVMX86Utils",
+					"-lLLVMMCJIT",
+					"-lLLVMLineEditor",
+					"-lLLVMInterpreter",
+					"-lLLVMExecutionEngine",
+					"-lLLVMRuntimeDyld",
+					"-lLLVMCodeGen",
+					"-lLLVMTarget",
+					"-lLLVMCoroutines",
+					"-lLLVMipo",
+					"-lLLVMInstrumentation",
+					"-lLLVMVectorize",
+					"-lLLVMScalarOpts",
+					"-lLLVMLinker",
+					"-lLLVMIRReader",
+					"-lLLVMAsmParser",
+					"-lLLVMInstCombine",
+					"-lLLVMTransformUtils",
+					"-lLLVMBitWriter",
+					"-lLLVMAnalysis",
+					"-lLLVMProfileData",
+					"-lLLVMObject",
+					"-lLLVMMCParser",
+					"-lLLVMMC",
+					"-lLLVMBitReader",
+					"-lLLVMCore",
+					"-lLLVMBinaryFormat",
+					"-lLLVMSupport",
+					"-lLLVMDemangle",
+					"-lz",
+					"-lcurses",
+					"-lm",
+					"-lxml2",
+					"-lc++",
+				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/llvm@6/6.0.1/include";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = LittleSwiftTests;
+			};
+			name = Release;
+		};
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "SWIFT_PACKAGE DEBUG";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
-		7CC158B321766FC000EEAEBE /* Release */ = {
+		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				COPY_PHASE_STRIP = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = s;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "-DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-			};
-			name = Release;
-		};
-		7CC158B521766FC000EEAEBE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 97346KBR2S;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-			};
-			name = Debug;
-		};
-		7CC158B621766FC000EEAEBE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 97346KBR2S;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7CC158A821766FC000EEAEBE /* Build configuration list for PBXProject "LittleSwift" */ = {
+		OBJ_115 /* Build configuration list for PBXNativeTarget "LLVM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7CC158B221766FC000EEAEBE /* Debug */,
-				7CC158B321766FC000EEAEBE /* Release */,
+				OBJ_116 /* Debug */,
+				OBJ_117 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7CC158B421766FC000EEAEBE /* Build configuration list for PBXNativeTarget "LittleSwift" */ = {
+		OBJ_162 /* Build configuration list for PBXNativeTarget "LLVMPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7CC158B521766FC000EEAEBE /* Debug */,
-				7CC158B621766FC000EEAEBE /* Release */,
+				OBJ_163 /* Debug */,
+				OBJ_164 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_168 /* Build configuration list for PBXNativeTarget "LittleSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_169 /* Debug */,
+				OBJ_170 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_2 /* Build configuration list for PBXProject "LittleSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_214 /* Build configuration list for PBXNativeTarget "LittleSwiftPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_215 /* Debug */,
+				OBJ_216 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_220 /* Build configuration list for PBXAggregateTarget "LittleSwiftPackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_221 /* Debug */,
+				OBJ_222 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_225 /* Build configuration list for PBXNativeTarget "LittleSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_226 /* Debug */,
+				OBJ_227 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 7CC158A521766FC000EEAEBE /* Project object */;
+	rootObject = OBJ_1 /* Project object */;
 }

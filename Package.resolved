@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "cllvm",
+        "repositoryURL": "https://github.com/llvm-swift/cllvm.git",
+        "state": {
+          "branch": null,
+          "revision": "e3b750e75df1c33ddb1e1d391c6c78640baf404f",
+          "version": "0.0.7"
+        }
+      },
+      {
+        "package": "FileCheck",
+        "repositoryURL": "https://github.com/llvm-swift/FileCheck.git",
+        "state": {
+          "branch": null,
+          "revision": "89b8480055f9adf8ce2f9ad5e2fac7ac1076242e",
+          "version": "0.0.8"
+        }
+      },
+      {
+        "package": "LLVM",
+        "repositoryURL": "https://github.com/llvm-swift/LLVMSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "e7c190ee25fdd54f1f0e303dd636023c19b46d33",
+          "version": "0.3.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
