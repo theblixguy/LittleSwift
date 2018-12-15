@@ -14,7 +14,7 @@ let arguments = CommandLine.arguments
 
 Printer.printAppHeader()
 
-if argumentCount <= 1 || argumentCount > 10 {
+if argumentCount <= 1 || argumentCount > 11 {
   Printer.printHelp()
 } else {
   
@@ -28,6 +28,7 @@ if argumentCount <= 1 || argumentCount > 10 {
   let irVerification: Bool = arguments.contains(ArgumentType.performIRVerification.rawValue) || arguments.contains(ArgumentType.performIRVerificationCompact.rawValue)
   let convertLangFlag: Bool = arguments.contains(ArgumentType.convertLang.rawValue) || arguments.contains(ArgumentType.convertLangCompact.rawValue)
   let convertLang: ConversionTargets = arguments.contains(ConversionTargets.kotlin.rawValue) ? .kotlin : .llvm
+  let replFlag: Bool = arguments.contains(ArgumentType.repl.rawValue) || arguments.contains(ArgumentType.repltCompact.rawValue)
   
   guard let firstArgumentType = ArgumentType(rawValue: firstArgumentKey), (firstArgumentType != .sourceFilePath || firstArgumentType != .sourceFilePathCompact) else {
     Printer.printInvalidArgumentMessage(receivedArguments: Array(arguments.dropFirst()))
@@ -77,6 +78,8 @@ if argumentCount <= 1 || argumentCount > 10 {
     
     Printer.printToScreen("> Semantic Analysis...")
     
+    // Perform Semantic analysis
+    
     let sema = Sema(with: ast)
     
     do {
@@ -84,6 +87,15 @@ if argumentCount <= 1 || argumentCount > 10 {
     } catch let error {
       print("> Sema error: \(error)")
       fatalError()
+    }
+    
+    // Run the interpreter
+    
+    if replFlag {
+      Printer.printToScreen("> Running REPL...")
+      
+      let interpreter = Interpreter(with: ast)
+      interpreter.run()
     }
     
     switch convertLang {
@@ -118,8 +130,7 @@ if argumentCount <= 1 || argumentCount > 10 {
         Printer.printToScreen("> JIT output:")
         fn()
       } else {
-        // Output program
-        
+        // TODO: Output program
         Printer.printToScreen("> Creating output program...")
       }
     }

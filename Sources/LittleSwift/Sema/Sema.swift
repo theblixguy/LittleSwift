@@ -31,6 +31,16 @@ class Sema {
     self.ast = ast
   }
   
+  func lookup(variable: String, in scope: String) -> VariableDeclaration {
+    precondition(variables.contains { $0.variable.name == variable })
+    precondition(variables.contains { $0.scope.name == scope })
+    
+    let decl = variables.first { $0.variable.name == variable && $0.scope.name == scope }?.variable
+    assert(decl != nil)
+    
+    return decl!
+  }
+  
   /// Performs semantic analysis over the AST.
   ///
   /// 1) The first phase is to specifically analyse the entry point
@@ -95,6 +105,8 @@ class Sema {
       return try visit(printStmt: expr, scope)
     } else if let expr = expr as? ReturnStatement {
       return try visit(returnStmt: expr, scope)
+    } else if let expr = expr as? Type {
+      return try visitLiteralType(expr)
     }
     
     return nil
@@ -207,7 +219,11 @@ class Sema {
     return rhs
   }
   
-  ///
+  func visitLiteralType(_ type: Type) -> BuiltinType? {
+    return mapSwiftTypeToBuiltinType(type)
+  }
+  
+  /// Map Swift type to LittleSwift built-in type
   private func mapSwiftTypeToBuiltinType(_ type: Type) -> BuiltinType? {
     if type is IntegerType {
       return BuiltinType.integer
@@ -251,5 +267,4 @@ class Sema {
       throw SemaError.TypeCheck.typeMismatch(expected: BuiltinType.void, got: mainFuncRetType)
     }
   }
-  
 }

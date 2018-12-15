@@ -27,6 +27,8 @@ enum ArgumentType: String {
   case jitIRCompact = "-j"
   case performIRVerification = "--perform-verification"
   case performIRVerificationCompact = "-v"
+  case repl = "--repl"
+  case repltCompact = "-i"
 }
 
 /// An enum that describes the output code that the program can generate/emit
