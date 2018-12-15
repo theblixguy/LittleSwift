@@ -8,6 +8,8 @@
 import Foundation
 
 extension Interpreter {
+  /// A struct that contains an expression and its evaluated
+  /// result
   struct ExpressionResult {
     let expression: Expression
     let result: Result
