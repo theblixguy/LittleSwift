@@ -19,6 +19,8 @@ enum ArgumentType: String {
   case dumpTokensCompact = "-dt"
   case dumpAst = "--dump-ast"
   case dumpAstCompact = "-da"
+  case dumpRepl = "--dump-repl"
+  case dumpReplCompact = "-dr"
   case dumpIr = "--dump-ir"
   case dumpIrCompact = "-di"
   case convertLang = "--convert"

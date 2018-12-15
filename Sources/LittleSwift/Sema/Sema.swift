@@ -224,6 +224,7 @@ class Sema {
     return rhs
   }
   
+  /// Visit a literal type (such as Bool or Int) and return the built-in type
   func visitLiteralType(_ type: Type) -> BuiltinType? {
     return mapSwiftTypeToBuiltinType(type)
   }

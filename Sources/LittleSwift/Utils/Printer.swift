@@ -87,6 +87,13 @@ struct Printer {
     dump(expressions)
   }
   
+  static func printReplResults(_ results: [Interpreter.ExpressionResult]) {
+    printAsterisksLine()
+    printToScreen("> REPL DUMP")
+    printAsterisksLine()
+    dump(results)
+  }
+  
   /// Dump the LLVM IR to the screen
   static func printIR(_ ir: String) {
     printAsterisksLine()

@@ -22,6 +22,8 @@ extension Interpreter {
       case string
       /// A Bool type
       case bool
+      /// A Void type
+      case void
       /// An invalid type
       case invalid
     }
@@ -93,13 +95,14 @@ extension Interpreter {
       return rawValueType
     }
     
-    /// Return the raw result
+    /// Return the raw result value
     func raw() -> Any {
       precondition(rawValue != nil)
       
       return rawValue
     }
     
+    /// Return the result value as `String`
     func rawAsString() -> String {
       precondition(rawValue != nil)
       precondition(rawValueType != .invalid)
@@ -113,6 +116,8 @@ extension Interpreter {
         return String(rawValue as! Int)
       case .string:
         return rawValue as! String
+      case .void:
+        return ""
       default: unreachable()
       }
     }
@@ -125,10 +130,18 @@ extension Interpreter {
       return isValidValue(rawValueType)
     }
     
+    /// Check if the result is a number
     func isNumber() -> Bool {
       precondition(rawValueType != nil)
       
       return rawValueType == .int || rawValueType == .float
+    }
+    
+    /// Check if the result is a Void
+    func isVoid() -> Bool {
+      precondition(rawValueType != nil)
+      
+      return rawValueType == .void
     }
     
     /// Check if the result has a valid type
@@ -154,6 +167,10 @@ extension Interpreter {
         return .string
       }
       
+      if someValue is Void {
+        return .void
+      }
+      
       return .invalid
     }
     
@@ -165,6 +182,11 @@ extension Interpreter {
     /// Return an empty result
     static func empty() -> Result {
       return Result()
+    }
+    
+    /// Return a result with a Void value
+    static func void() -> Result {
+      return Result(value: Void())
     }
   }
 }

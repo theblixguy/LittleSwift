@@ -14,7 +14,7 @@ let arguments = CommandLine.arguments
 
 Printer.printAppHeader()
 
-if argumentCount <= 1 || argumentCount > 11 {
+if argumentCount <= 1 || argumentCount > 12 {
   Printer.printHelp()
 } else {
   
@@ -29,6 +29,7 @@ if argumentCount <= 1 || argumentCount > 11 {
   let convertLangFlag: Bool = arguments.contains(ArgumentType.convertLang.rawValue) || arguments.contains(ArgumentType.convertLangCompact.rawValue)
   let convertLang: ConversionTargets = arguments.contains(ConversionTargets.kotlin.rawValue) ? .kotlin : .llvm
   let replFlag: Bool = arguments.contains(ArgumentType.repl.rawValue) || arguments.contains(ArgumentType.repltCompact.rawValue)
+  let dumpReplFlag: Bool = arguments.contains(ArgumentType.dumpRepl.rawValue) || arguments.contains(ArgumentType.dumpReplCompact.rawValue)
   
   guard let firstArgumentType = ArgumentType(rawValue: firstArgumentKey), (firstArgumentType != .sourceFilePath || firstArgumentType != .sourceFilePathCompact) else {
     Printer.printInvalidArgumentMessage(receivedArguments: Array(arguments.dropFirst()))
@@ -94,7 +95,7 @@ if argumentCount <= 1 || argumentCount > 11 {
     if replFlag {
       Printer.printToScreen("> Running REPL...")
       
-      let interpreter = Interpreter(with: ast)
+      let interpreter = Interpreter(with: ast, shouldDumpResults: dumpReplFlag)
       interpreter.run()
     }
     

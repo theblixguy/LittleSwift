@@ -14,7 +14,7 @@ final class Interpreter {
   private let ast: [Expression]
   /// A flag that indicates whether the interpreter should dump
   /// the results for each expression
-  private let shouldDumpResults: Bool = false
+  private let shouldDumpResults: Bool
   /// An array of `ExpressionResult` that contains the result for
   /// each evaluated expression
   private var expressionResults: [ExpressionResult] = []
@@ -22,6 +22,7 @@ final class Interpreter {
   /// Initialize the interpreter with the AST
   init(with ast: [Expression], shouldDumpResults: Bool = false) {
     self.ast = ast
+    self.shouldDumpResults = shouldDumpResults
   }
   
   /// Run the interpreter (REPL)
@@ -31,6 +32,10 @@ final class Interpreter {
     mainFunction.body.forEach { expression in
       let result = evaluate(expression)
       append(result, for: expression)
+    }
+    
+    if shouldDumpResults {
+      Printer.printReplResults(expressionResults)
     }
   }
   
@@ -134,7 +139,7 @@ final class Interpreter {
     let result = evaluate(toPrint)
     print(result.rawAsString())
     
-    return result
+    return Result.void()
   }
   
   /// Evaluates a property access expression and returns the result
