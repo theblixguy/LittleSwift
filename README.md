@@ -15,6 +15,7 @@ LittleSwift is a simple compiler written in Swift that can compile Swift code. I
     - Binary operators (`+`, `-`, `*`, `/`)
     - `print` (only integers at the moment)
 - Just-in-time (JIT) compilation
+- Interpreter (REPL)
 
 ### What it can't do?
 
