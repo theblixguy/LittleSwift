@@ -12,9 +12,11 @@ final class Interpreter {
   
   /// The AST expressions
   private let ast: [Expression]
+  
   /// A flag that indicates whether the interpreter should dump
   /// the results for each expression
   private let shouldDumpResults: Bool
+  
   /// An array of `ExpressionResult` that contains the result for
   /// each evaluated expression
   private var expressionResults: [ExpressionResult] = []
@@ -61,11 +63,16 @@ final class Interpreter {
   /// Evaluates a literal type (like an Int or Bool) and returns the result
   private func evaluateLiteralType(_ type: Type) -> Result {
     switch type {
-    case let intType as IntegerType: return Result(value: intType.value)
-    case let floatType as FloatType: return Result(value: floatType.value)
-    case let boolType as BoolType: return Result(value: boolType.value)
-    case let stringType as StringType: return Result(value: stringType.value)
-    default: return Result.empty()
+    case let intType as IntegerType:
+      return Result(value: intType.value)
+    case let floatType as FloatType:
+      return Result(value: floatType.value)
+    case let boolType as BoolType:
+      return Result(value: boolType.value)
+    case let stringType as StringType:
+      return Result(value: stringType.value)
+    default:
+      return Result.empty()
     }
   }
   
