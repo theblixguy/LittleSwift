@@ -48,7 +48,7 @@ final class Interpreter {
     case let type as Type:
       return evaluateLiteralType(type)
     case let assignment as AssignmentExpression:
-      return assignmentExpression(assignment)
+      return evaluateAssignmentExpression(assignment)
     case let `operator` as BinaryOperatorExpression:
       return evaluateOperatorExpr(`operator`)
     case let printStmt as PrintStatement:
@@ -77,7 +77,7 @@ final class Interpreter {
   }
   
   /// Evaluates a variable assignment and returns the result
-  private func assignmentExpression(_ expr: AssignmentExpression) -> Result {
+  private func evaluateAssignmentExpression(_ expr: AssignmentExpression) -> Result {
     return evaluate(expr.value)
   }
   
