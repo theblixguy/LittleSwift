@@ -9,6 +9,7 @@
 import Foundation
 import LLVM
 
+/// An enum that describes an IRGen error
 enum IRError: Error {
   case unsupportedExpression
   case unknownFunction(String)
@@ -18,6 +19,7 @@ enum IRError: Error {
   case invalidStatement
 }
 
+/// An enum that describes a printf type specifier
 enum PrintTypeSpecifier {
   case string, float, double, int
 }
