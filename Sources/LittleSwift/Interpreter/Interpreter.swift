@@ -21,6 +21,10 @@ final class Interpreter {
   /// each evaluated expression
   private var expressionResults: [ExpressionResult] = []
   
+  /// A stack that contains the evaluated results for the arguments of
+  /// the to-be-invoked function call
+  private var callStack: Stack<Result> = .init()
+  
   /// Initialize the interpreter with the AST
   init(with ast: [Expression], shouldDumpResults: Bool = false) {
     self.ast = ast
@@ -47,14 +51,18 @@ final class Interpreter {
       
     case let type as Type:
       return evaluateLiteralType(type)
-    case let assignment as AssignmentExpression:
-      return evaluateAssignmentExpression(assignment)
-    case let `operator` as BinaryOperatorExpression:
-      return evaluateOperatorExpr(`operator`)
+    case let assignmentExpr as AssignmentExpression:
+      return evaluateAssignmentExpression(assignmentExpr)
+    case let operatorExpr as BinaryOperatorExpression:
+      return evaluateOperatorExpr(operatorExpr)
     case let printStmt as PrintStatement:
       return evaluatePrintStatement(printStmt)
     case let propAccess as PropertyAccessExpression:
       return evaluatePropertyAccessExpr(propAccess)
+    case let returnStmt as ReturnStatement:
+      return evaluateReturnStmt(returnStmt)
+    case let callExpr as FunctionCallExpression:
+      return evaluateFunctionCallExpr(callExpr)
     default:
       return Result.empty()
     }
@@ -146,15 +154,52 @@ final class Interpreter {
     let result = evaluate(toPrint)
     print(result.rawAsString())
     
-    return Result.void()
+    return .void()
   }
   
   /// Evaluates a property access expression and returns the result
   private func evaluatePropertyAccessExpr(_ expr: PropertyAccessExpression) -> Result {
     
-    // By this time, the expression would've already been evaluated, so lookup
-    // the result and return it
-    return lookupResult(for: expr.name)
+    // Check if the call stack is empty
+    guard !callStack.empty() else {
+      // Nothing in the call stack, lookup the property and return it
+      return lookupResult(for: expr.name)
+    }
+    
+    // Return the result from the call stack
+    guard let result = callStack.pop() else { unreachable() }
+    return result
+  }
+  
+  /// Evaluates a return statement and returns the result
+  private func evaluateReturnStmt(_ stmt: ReturnStatement) -> Result {
+    return evaluate(stmt.value)
+  }
+  
+  /// Evaluate a function call and return the result
+  private func evaluateFunctionCallExpr(_ expr: FunctionCallExpression) -> Result {
+    let argumentResults = expr.arguments.map { evaluate($0) }
+    
+    argumentResults.forEach { argResult in
+      callStack.push(argResult)
+    }
+    
+    let decl = lookupDecl(for: expr.name)
+    
+    var results: [ExpressionResult] = []
+    
+    decl.body.forEach { expression in
+      let result = evaluate(expression)
+      results.append(ExpressionResult(expression: expression, result: result))
+    }
+    
+    var resultToReturn: Result = .void()
+    
+    if let returnStatementResult = lookupReturnStatement(in: results) {
+      resultToReturn = returnStatementResult
+    }
+    
+    return resultToReturn
   }
   
   /// A helper that calls fatalError().
@@ -190,5 +235,23 @@ final class Interpreter {
     guard let result = expressionResults.first(where: { $0.expression is E })?.result else { unreachable() }
     
     return result
+  }
+  
+  private func lookupReturnStatement(in results: [ExpressionResult]) -> Result? {
+    precondition(!results.isEmpty)
+    
+    return results.first(where: { $0.expression is ReturnStatement })?.result
+  }
+  
+  /// Lookup the declaration for a function
+  private func lookupDecl(for functionName: String) -> FunctionDeclaration {
+    let _decl = ast
+      .filter { $0 is FunctionDeclaration }
+      .compactMap { $0 as? FunctionDeclaration }
+      .first { $0.signature.name == functionName }
+    
+    guard let decl = _decl else { unreachable() }
+    
+    return decl
   }
 }

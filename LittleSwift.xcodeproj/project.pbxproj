@@ -28,6 +28,7 @@
 		7C311D3C21C5A26000A9D00C /* Array+Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C311D3B21C5A26000A9D00C /* Array+Expression.swift */; };
 		7C311D4021C5B93200A9D00C /* InterpreterResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C311D3F21C5B93200A9D00C /* InterpreterResult.swift */; };
 		7C311D4221C5B97A00A9D00C /* ExpressionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C311D4121C5B97A00A9D00C /* ExpressionResult.swift */; };
+		7C311D4421C5C52400A9D00C /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C311D4321C5C52400A9D00C /* Stack.swift */; };
 		OBJ_119 /* Alias.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Alias.swift */; };
 		OBJ_120 /* ArrayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* ArrayType.swift */; };
 		OBJ_121 /* BasicBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* BasicBlock.swift */; };
@@ -154,6 +155,7 @@
 		7C311D3B21C5A26000A9D00C /* Array+Expression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Expression.swift"; sourceTree = "<group>"; };
 		7C311D3F21C5B93200A9D00C /* InterpreterResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpreterResult.swift; sourceTree = "<group>"; };
 		7C311D4121C5B97A00A9D00C /* ExpressionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionResult.swift; sourceTree = "<group>"; };
+		7C311D4321C5C52400A9D00C /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		"LLVM::LLVM::Product" /* LLVM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LLVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"LittleSwift::LittleSwift::Product" /* LittleSwift */ = {isa = PBXFileReference; lastKnownFileType = text; path = LittleSwift; sourceTree = BUILT_PRODUCTS_DIR; };
 		"LittleSwift::LittleSwiftTests::Product" /* LittleSwiftTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = LittleSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -284,6 +286,7 @@
 				7C311D4121C5B97A00A9D00C /* ExpressionResult.swift */,
 				7C311D3921C58C0600A9D00C /* Interpreter.swift */,
 				7C311D3F21C5B93200A9D00C /* InterpreterResult.swift */,
+				7C311D4321C5C52400A9D00C /* Stack.swift */,
 			);
 			path = Interpreter;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				7C311D3A21C58C0600A9D00C /* Interpreter.swift in Sources */,
 				OBJ_178 /* Lexer.swift in Sources */,
 				OBJ_179 /* Token.swift in Sources */,
+				7C311D4421C5C52400A9D00C /* Stack.swift in Sources */,
 				OBJ_180 /* Declaration.swift in Sources */,
 				OBJ_181 /* DeclarationModifier.swift in Sources */,
 				7C14B99F217FCD21005CA585 /* SemaError.swift in Sources */,
