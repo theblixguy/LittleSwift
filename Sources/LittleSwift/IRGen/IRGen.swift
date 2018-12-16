@@ -318,7 +318,7 @@ final class IRGen {
       exprs.append(expr)
     }
     
-    if function.name == "main" || definition.signature.returnType == .void {
+    if definition.signature.returnType == .void {
       builder.buildRetVoid()
     }
     
