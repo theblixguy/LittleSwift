@@ -124,12 +124,13 @@ if argumentCount <= 1 || argumentCount > 12 {
       
       if jit {
         Printer.printToScreen("> Performing JIT compilation...")
-        let jit = try! JIT(module: emitter.getModule(), machine: TargetMachine())
-        typealias FnPtr = @convention(c) () -> Void
-        let fnAddr = jit.addressOfFunction(name: "main")
-        let fn = unsafeBitCast(fnAddr, to: FnPtr.self)
-        Printer.printToScreen("> JIT output:")
-        fn()
+        
+        if let mainFunction = emitter.getModule().function(named: "main") {
+          let jit = try! JIT(module: emitter.getModule(), machine: TargetMachine())
+          
+          Printer.printToScreen("> JIT output:")
+          let _ = jit.runFunctionAsMain(mainFunction, args: [])
+        }
       } else {
         Printer.printToScreen("> Creating output program...")
         let binary = Binary(with: emitter.getModule(), sourceFileName: fileName)
