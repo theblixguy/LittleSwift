@@ -241,6 +241,7 @@ class Sema {
   /// Visit a return statement and type check it
   private func visit(returnStmt: ReturnStatement, _ scope: FunctionDeclaration) throws -> BuiltinType? {
     let lhs = scope.signature.returnType
+    
     guard let rhs = try visit(returnStmt.value, scope) else {
       throw SemaError.TypeCheck.invalidType
     }
@@ -260,15 +261,15 @@ class Sema {
   /// Map Swift type to LittleSwift built-in type
   private func mapSwiftTypeToBuiltinType(_ type: Type) -> BuiltinType? {
     if type is IntegerType {
-      return BuiltinType.integer
+      return .integer
     } else if type is FloatType {
-      return BuiltinType.float
+      return .float
     } else if type is StringType {
-      return BuiltinType.string
+      return .string
     } else if type is BoolType {
-      return BuiltinType.bool
+      return .bool
     } else {
-      return BuiltinType.void
+      return .void
     }
   }
   
@@ -285,7 +286,7 @@ class Sema {
     
     let mainFuncCountInAst = ast.count { ($0 as? FunctionDeclaration)?.signature.name == "main" }
     let mainFuncRetType = mainFunc.signature.returnType
-    let mainFuncRetIsVoid = mainFuncRetType.rawName == BuiltinType.void.rawName
+    let mainFuncRetIsVoid = mainFuncRetType == .void
     let mainFuncArity = mainFunc.signature.arguments.count
     let mainFuncArityIsZero = mainFuncArity == 0
     
@@ -298,7 +299,7 @@ class Sema {
     }
     
     if !mainFuncRetIsVoid {
-      throw SemaError.TypeCheck.typeMismatch(expected: BuiltinType.void, got: mainFuncRetType)
+      throw SemaError.TypeCheck.typeMismatch(expected: .void, got: mainFuncRetType)
     }
   }
 }
