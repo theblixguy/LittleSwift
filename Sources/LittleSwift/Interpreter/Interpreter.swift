@@ -160,7 +160,7 @@ final class Interpreter {
     guard let toPrint = stmt.arguments.first else { unreachable() }
     
     let result = evaluate(toPrint)
-    print(result.rawAsString())
+    Printer.printReplString(result.rawAsString())
     
     return .void()
   }

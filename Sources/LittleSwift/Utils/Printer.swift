@@ -87,6 +87,7 @@ struct Printer {
     dump(expressions)
   }
   
+  /// Dump the REPL results to the screen
   static func printReplResults(_ results: [Interpreter.ExpressionResult]) {
     printAsterisksLine()
     printToScreen("> REPL DUMP")
@@ -100,6 +101,11 @@ struct Printer {
     printToScreen("> LLVM IR DUMP")
     printAsterisksLine()
     print(ir)
+  }
+  
+  /// Print the REPL output to screen
+  static func printReplString(_ value: String) {
+    printToScreen("> \(value)")
   }
   
   /// Print a new line

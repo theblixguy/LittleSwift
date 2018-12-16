@@ -115,7 +115,7 @@ extension Interpreter {
       case .int:
         return String(rawValue as! Int)
       case .string:
-        return rawValue as! String
+        return (rawValue as! String).replacingOccurrences(of: "\"", with: "")
       case .void:
         return ""
       default: unreachable()
