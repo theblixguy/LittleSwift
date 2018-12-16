@@ -50,6 +50,14 @@ public struct Parser {
     currentTokenIndex += 1
   }
   
+  mutating func rewindToken(by steps: Int = 1) {
+    currentTokenIndex -= steps
+  }
+  
+  func peekLastToken() -> Token {
+    return tokens[currentTokenIndex - 1]
+  }
+  
   /// Get the precedence of the current token. Returns
   /// Int.min if the current token isn't an operator
   func getCurrentTokenPrecedence() -> Int {

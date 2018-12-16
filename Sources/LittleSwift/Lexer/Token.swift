@@ -10,7 +10,7 @@ import Foundation
 
 /// An enum that describes the types of token that the parser
 /// can work with
-public enum Token {
+public enum Token: Equatable {
   case colon
   case semicolon
   case parensOpen
@@ -60,10 +60,26 @@ public enum Token {
     
     return false
   }
+  
+  // Check if the token is a type (ex: String or Int)
+  func isType() -> Bool {
+    switch self {
+    case .int, .float, .void, .bool, .string: return true
+    default: return false
+    }
+  }
+  
+  func `is`(_ token: Token) -> Bool {
+    if self == token {
+      return true
+    }
+    
+    return false
+  }
 }
 
 /// An enum that represents a constant token
-public enum Constant {
+public enum Constant: Equatable {
   case `int`
   case `float`
   case `bool`
@@ -72,12 +88,12 @@ public enum Constant {
 
 /// An enum that represents a value token containing a value
 /// of any type
-public enum Value {
-  case value(Any)
+public enum Value: Equatable {
+  case value(AnyHashable)
 }
 
 /// An operator token
-public enum Operator {
+public enum Operator: Equatable {
   case plus
   case minus
   case multiply
@@ -85,7 +101,7 @@ public enum Operator {
 }
 
 /// A precedence token
-public enum Precedence {
+public enum Precedence: Equatable {
   case addition
   case multiplication
 }

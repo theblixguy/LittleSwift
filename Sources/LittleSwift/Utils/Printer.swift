@@ -105,7 +105,7 @@ struct Printer {
   
   /// Print the REPL output to screen
   static func printReplString(_ value: String) {
-    printToScreen("> \(value)")
+    printToScreen("\t> \(value)")
   }
   
   /// Print a new line

@@ -271,7 +271,6 @@ final class Interpreter {
   /// Lookup the declaration for a function
   private func lookupDecl(for functionName: String) -> FunctionDeclaration {
     let _decl = ast
-      .filter { $0 is FunctionDeclaration }
       .compactMap { $0 as? FunctionDeclaration }
       .first { $0.signature.name == functionName }
     
