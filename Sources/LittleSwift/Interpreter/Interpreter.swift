@@ -10,7 +10,7 @@ import Foundation
 /// A class that walks the type-checked AST and evaluates it
 final class Interpreter {
   
-  /// The AST expressions
+  /// The AST
   private let ast: [Expression]
   
   /// A flag that indicates whether the interpreter should dump

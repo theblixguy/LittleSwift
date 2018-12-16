@@ -24,7 +24,7 @@ enum PrintTypeSpecifier {
   case string, float, double, int
 }
 
-/// A class to generate LLVM IR for the code
+/// A class to lower the type checked AST to LLVM Intermediate Representation
 final class IRGen {
   
   /// The AST

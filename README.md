@@ -37,3 +37,7 @@ LittleSwift is a simple compiler written in Swift that can compile Swift code. I
 ## Usage
 
 Refer to the command-line parameters. You can simply invoke the compiler without any arguments and it will print all the parameters it supports.
+
+## License
+
+GPL v3
