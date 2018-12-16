@@ -8,19 +8,20 @@ LittleSwift is a simple compiler written in Swift that can compile Swift code. I
 
 ### What can it do?
 
-- Tokenize, Parse, Sema, IRGen, Emit (Kotlin)
+- Tokenize, Parse, Sema, IRGen
 - Supports a strict subset of Swift grammar
     - Functions and variables
     - Primitive types (`String`, `Int`, `Float`, `Void`, `Bool`)
     - Binary operators (`+`, `-`, `*`, `/`)
-    - `print` (integers only during IRGen)
+    - `print`
 - Just-in-time (JIT) compilation
 - Interpreter (REPL)
+- Emit Kotlin code
 - Basic type inference
 
 ### What it can't do?
 
-- Output a binary (only does JIT at the moment)
+- Output a binary
 - Support classes, protocols, generics, etc
 - Support other types like `Array` and `List`
 - Module maps

@@ -106,8 +106,8 @@ if argumentCount <= 1 || argumentCount > 12 {
       File.write(fileName: "\(fileName).kt", contents: emitter.emit().value)
       Printer.printToScreen("Saved to file \(fileName).kt!")
     case .llvm:
-      // Pass to LLVM
       
+      // Pass to LLVM
       Printer.printToScreen("> Generating LLVM IR...")
       
       let emitter = IRGen(with: ast)
