@@ -65,7 +65,7 @@ if argumentCount <= 1 || argumentCount > 12 {
     
     Printer.printToScreen("> Parsing...")
     
-    var parser = Parser(tokens: tokens)
+    let parser = Parser(tokens: tokens)
     let ast = try parser.parseTokens()
     
     if ast.isEmpty {
@@ -131,8 +131,16 @@ if argumentCount <= 1 || argumentCount > 12 {
         Printer.printToScreen("> JIT output:")
         fn()
       } else {
-        // TODO: Output program
         Printer.printToScreen("> Creating output program...")
+        let binary = Binary(with: emitter.getModule(), sourceFileName: fileName)
+        
+        binary.generate() { success in
+          if success {
+            Printer.printToScreen("> Binary succesfully generated!")
+          } else {
+            Printer.printToScreen("> There was an error while generating a binary!")
+          }
+        }
       }
     }
     

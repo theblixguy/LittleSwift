@@ -33,6 +33,10 @@ struct File {
     }
   }
   
+  static func getCurrentDirectoryPath() -> URL {
+    return URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
+  }
+  
   /// Check if a file exists at the given path
   private static func exists(_ path: String) -> Bool {
     return FileManager().fileExists(atPath: path)

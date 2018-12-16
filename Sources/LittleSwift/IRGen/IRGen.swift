@@ -61,11 +61,11 @@ final class IRGen {
   }
   
   /// Lookup the signature for a function
-  func lookup(for functionName: String) -> FunctionSignature? {
+  private func lookup(for functionName: String) -> FunctionSignature? {
     return signatureMap[functionName]
   }
   
-  func lookup(for specifier: PrintTypeSpecifier) -> IRValue? {
+  private func lookup(for specifier: PrintTypeSpecifier) -> IRValue? {
     return printTypeSpecifiers[specifier]
   }
   
@@ -105,7 +105,7 @@ final class IRGen {
   }
   
   /// Emit LLVM IR for an expression
-  func emitExpression(_ expression: Expression) throws -> IRValue {
+  private func emitExpression(_ expression: Expression) throws -> IRValue {
     if let typeExpr = expression as? Type {
       return try emitType(typeExpr)
     } else if let callExpr = expression as? FunctionCallExpression {
@@ -272,7 +272,7 @@ final class IRGen {
   }
   
   /// Emit LLVM IR for a function signature
-  func emitFunctionSignature(_ signature: FunctionSignature) -> Function {
+  private func emitFunctionSignature(_ signature: FunctionSignature) -> Function {
     
     if let function = module.function(named: signature.name) {
       return function
@@ -299,8 +299,7 @@ final class IRGen {
   }
   
   /// Emit LLVM IR for a function declaration
-  @discardableResult
-  func emitFunctionDeclaration(_ definition: FunctionDeclaration) throws -> Function {
+  private func emitFunctionDeclaration(_ definition: FunctionDeclaration) throws -> Function {
     let function = emitFunctionSignature(definition.signature)
     
     for (idx, arg) in definition.signature.arguments.enumerated() {
@@ -328,7 +327,7 @@ final class IRGen {
   }
   
   /// Emit the LLVM IR for the C printf function
-  func emitPrintf() -> Function {
+  private func emitPrintf() -> Function {
     if let function = module.function(named: "printf") { return function }
     
     let printfType = FunctionType(argTypes: [PointerType(pointee: IntType.int8)], returnType: IntType.int32, isVarArg: true)
@@ -379,7 +378,7 @@ final class IRGen {
   }
   
   /// Append a local parameter to the parameter map
-  func addLocalParam(name: String, storedRef: IRValue) {
+  private func addLocalParam(name: String, storedRef: IRValue) {
     localParams[name] = storedRef
   }
   

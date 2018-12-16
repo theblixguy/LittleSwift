@@ -29,6 +29,7 @@
 		7C311D4021C5B93200A9D00C /* InterpreterResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C311D3F21C5B93200A9D00C /* InterpreterResult.swift */; };
 		7C311D4221C5B97A00A9D00C /* ExpressionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C311D4121C5B97A00A9D00C /* ExpressionResult.swift */; };
 		7C311D4421C5C52400A9D00C /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C311D4321C5C52400A9D00C /* Stack.swift */; };
+		7C311D4621C6E71600A9D00C /* Binary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C311D4521C6E71600A9D00C /* Binary.swift */; };
 		OBJ_119 /* Alias.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Alias.swift */; };
 		OBJ_120 /* ArrayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* ArrayType.swift */; };
 		OBJ_121 /* BasicBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* BasicBlock.swift */; };
@@ -156,6 +157,7 @@
 		7C311D3F21C5B93200A9D00C /* InterpreterResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpreterResult.swift; sourceTree = "<group>"; };
 		7C311D4121C5B97A00A9D00C /* ExpressionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionResult.swift; sourceTree = "<group>"; };
 		7C311D4321C5C52400A9D00C /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		7C311D4521C6E71600A9D00C /* Binary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binary.swift; sourceTree = "<group>"; };
 		"LLVM::LLVM::Product" /* LLVM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LLVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"LittleSwift::LittleSwift::Product" /* LittleSwift */ = {isa = PBXFileReference; lastKnownFileType = text; path = LittleSwift; sourceTree = BUILT_PRODUCTS_DIR; };
 		"LittleSwift::LittleSwiftTests::Product" /* LittleSwiftTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = LittleSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_13 /* IRGen.swift */,
+				7C311D4521C6E71600A9D00C /* Binary.swift */,
 			);
 			path = IRGen;
 			sourceTree = "<group>";
@@ -775,6 +778,7 @@
 				OBJ_206 /* File.swift in Sources */,
 				OBJ_207 /* Printer.swift in Sources */,
 				OBJ_208 /* Regex.swift in Sources */,
+				7C311D4621C6E71600A9D00C /* Binary.swift in Sources */,
 				7C14B99B217FCB6D005CA585 /* Sema.swift in Sources */,
 				OBJ_209 /* main.swift in Sources */,
 			);
