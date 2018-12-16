@@ -8,6 +8,6 @@
 
 import Foundation
 
-public struct StringType: Expression {
+public struct StringType: Type {
   let value: String
 }

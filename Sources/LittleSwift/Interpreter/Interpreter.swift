@@ -23,7 +23,15 @@ final class Interpreter {
   
   /// A stack that contains the evaluated results for the arguments of
   /// the to-be-invoked function call
-  private var callStack: Stack<Result> = .init()
+  private var callStack: Stack<Expression> = .init()
+  
+  /// A cache to store recently popped results for the arguments of
+  /// the invoked function call.
+  ///
+  /// This allows us to refer to arguments that are passed in
+  /// function calls more than once, as otherwise they won't
+  /// exist on the stack once accessed
+  private var callStackExpressionCache: [ExpressionResult] = .init()
   
   /// Initialize the interpreter with the AST
   init(with ast: [Expression], shouldDumpResults: Bool = false) {
@@ -160,14 +168,25 @@ final class Interpreter {
   /// Evaluates a property access expression and returns the result
   private func evaluatePropertyAccessExpr(_ expr: PropertyAccessExpression) -> Result {
     
-    // Check if the call stack is empty
+    // Check if the result exists in the cache first and return if it does
+    if let cachedResult = callStackExpressionCache.first(where: { ($0.expression as? PropertyAccessExpression)?.name == expr.name })?.result {
+      return cachedResult
+    }
+    
+    // Check if the call stack is empty, if it is then we don't need to
+    // evaluate anything
     guard !callStack.empty() else {
       // Nothing in the call stack, lookup the property and return it
       return lookupResult(for: expr.name)
     }
     
-    // Return the result from the call stack
-    guard let result = callStack.pop() else { unreachable() }
+    // Evaluate the argument on the call stack
+    guard let expr = callStack.pop() else { unreachable() }
+    
+    let result = evaluate(expr)
+    
+    callStackExpressionCache.append(ExpressionResult(expression: expr, result: result))
+    
     return result
   }
   
@@ -178,9 +197,8 @@ final class Interpreter {
   
   /// Evaluate a function call and return the result
   private func evaluateFunctionCallExpr(_ expr: FunctionCallExpression) -> Result {
-    let argumentResults = expr.arguments.map { evaluate($0) }
     
-    argumentResults.forEach { argResult in
+    expr.arguments.forEach { argResult in
       callStack.push(argResult)
     }
     
@@ -192,6 +210,9 @@ final class Interpreter {
       let result = evaluate(expression)
       results.append(ExpressionResult(expression: expression, result: result))
     }
+    
+    // Clean up the cache
+    callStackExpressionCache.removeAll()
     
     var resultToReturn: Result = .void()
     
@@ -223,7 +244,11 @@ final class Interpreter {
     
     precondition(!potentialResults.isEmpty)
     
-    guard let result = potentialResults.first?.result else { unreachable() }
+    if potentialResults.count == 1 {
+      return potentialResults.first!.result
+    }
+    
+    guard let result = potentialResults.first(where: { ($0.expression as? AssignmentExpression)?.variable.name == property })?.result else { unreachable() }
     
     return result
   }
