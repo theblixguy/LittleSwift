@@ -21,24 +21,16 @@ class Sema {
   
   /// A dictionary that maps a function name to its signature
   private var functionSignatureMap: [String: FunctionSignature] = [:]
+  
   /// A array of scope variables
   private var variables: [SemaScopeVariable] = []
+  
   /// The AST
   private var ast: [Expression]
   
   /// The initializer for the class
   init(with ast: [Expression]) {
     self.ast = ast
-  }
-  
-  func lookup(variable: String, in scope: String) -> VariableDeclaration {
-    precondition(variables.contains { $0.variable.name == variable })
-    precondition(variables.contains { $0.scope.name == scope })
-    
-    let decl = variables.first { $0.variable.name == variable && $0.scope.name == scope }?.variable
-    assert(decl != nil)
-    
-    return decl!
   }
   
   /// Performs semantic analysis over the AST.
@@ -178,8 +170,8 @@ class Sema {
     return functionSignature.returnType
   }
   
-  /// Visit a variable declaration. There is no need to check a variable declaration as they always
-  /// contain a type so just return its type directly
+  /// Visit a variable declaration. There is no need to check a variable declaration because its type
+  /// can be inferred from the assigned value
   private func visit(variableDecl: VariableDeclaration, _ scope: FunctionDeclaration) -> BuiltinType {
     return variableDecl.type
   }
@@ -229,10 +221,10 @@ class Sema {
     return lhs
   }
 	
-	/// Visit a type expression and return the built in type
-	private func visit(type: Type) -> BuiltinType {
-		return mapSwiftTypeToBuiltinType(type) ?? .void
-	}
+  /// Visit a type expression and return the built in type
+  private func visit(type: Type) -> BuiltinType {
+    return mapSwiftTypeToBuiltinType(type) ?? .void
+  }
   
   /// Visit a print statement and type check all of its arguments. At the moment, it only type
   /// checks the first argument, but this function must check all the arguments and ensure they
