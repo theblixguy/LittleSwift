@@ -42,6 +42,24 @@ public enum Token {
   
   case constant(type: Constant, value: Value)
   case `operator`(type: Operator, precedence: Precedence)
+  
+  // Check if the token is an identifier (ex: a function name)
+  func isIdentifier() -> Bool {
+    if case .identifier(_) = self {
+      return true
+    }
+    
+    return false
+  }
+  
+  // Check if the token is a constant (ex: integer literal)
+  func isConstant() -> Bool {
+    if case .constant(_, _) = self {
+      return true
+    }
+    
+    return false
+  }
 }
 
 /// An enum that represents a constant token

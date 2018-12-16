@@ -224,7 +224,7 @@ public struct Parser {
       throw ParseError.Category.Expectation.identifier
     }
     
-    if case .constant(_) = peekNextToken() {
+    if peekNextToken().isConstant() || peekNextToken().isIdentifier() {
       consumeToken()
       let assignedValue = try parseSimpleOrOperatorExpression()
       let variable = VariableDeclaration(mutability: mutability, name: id, type: .placeholder)
