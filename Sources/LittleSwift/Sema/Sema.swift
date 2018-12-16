@@ -121,11 +121,27 @@ class Sema {
   
   /// Visit a function call expression and type check it
   private func visit(funcCallExpr: FunctionCallExpression, _ scope: FunctionDeclaration) throws -> BuiltinType {
-    var argTypes: [Type] = []
+    var argTypes: [BuiltinType] = []
+    
+    // Local function to lookup an argument in scope
+    func lookupArgTypeInScope(arg: PropertyAccessExpression) -> BuiltinType {
+      let allVariableAssigns = scope.body.compactMap { $0 as? AssignmentExpression }
+      
+      guard let decl = allVariableAssigns.first(where: { $0.variable.name == arg.name }) else {
+        return BuiltinType.void
+      }
+      
+      return decl.variable.type
+    }
     
     funcCallExpr.arguments.forEach { expr in
-      guard let _type = expr as? Type else { return }
-      argTypes.append(_type)
+      if let arg = expr as? PropertyAccessExpression {
+        let _type = lookupArgTypeInScope(arg: arg)
+        argTypes.append(_type)
+      }
+      
+      guard let _type = expr as? Type, let mappedType = mapSwiftTypeToBuiltinType(_type) else { return }
+      argTypes.append(mappedType)
     }
     
     guard let functionSignature = functionSignatureMap[funcCallExpr.name] else {
@@ -141,9 +157,7 @@ class Sema {
     
     let funcSignatureArgTypes = functionSignature.arguments.map { $0.type }
     
-    let mappedArgTypes = argTypes.compactMap { mapSwiftTypeToBuiltinType($0) }
-    
-    guard funcSignatureArgTypes == mappedArgTypes else {
+    guard funcSignatureArgTypes == argTypes else {
       throw SemaError.TypeCheck.invalidParameters
     }
     
