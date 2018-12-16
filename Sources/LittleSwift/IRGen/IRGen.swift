@@ -16,29 +16,45 @@ enum IRError: Error {
   case arityMismatch(String, expected: Int, got: Int)
 }
 
-class IRGen {
+/// A class to generate LLVM IR for the code
+final class IRGen {
   
+  /// The AST
   private let ast: [Expression]
+  
+  // The IR Module
   private let module: Module
+  
+  /// The IR Builder
   private let builder: IRBuilder
+  
+  /// A map of function name to its signature
   private var signatureMap: [String: FunctionSignature] = [String: FunctionSignature]()
+  
+  /// A map of parameter name to its value
   private var parameterValues = [String: IRValue]()
+  
+  /// A map of local parameter name to its value
   private var localParams = [String: IRValue]()
   
+  /// Init
   init(with ast: [Expression]) {
     self.ast = ast
     self.module = Module(name: "main")
     self.builder = IRBuilder(module: module)
   }
   
+  /// Get the IR module
   func getModule() -> Module {
     return module
   }
   
-  func signature(for functionName: String) -> FunctionSignature? {
+  /// Lookup the signature for a function
+  func lookup(for functionName: String) -> FunctionSignature? {
     return signatureMap[functionName]
   }
   
+  /// Emit LLVM IR for the code
   func emit() {
     let funcSignatures = ast.enumerated().filter { $1 is FunctionSignature }
     let funcDecls = ast.enumerated().filter { $1 is FunctionDeclaration }
@@ -68,6 +84,7 @@ class IRGen {
     }
   }
   
+  /// Emit LLVM IR for an expression
   func emitExpression(_ expression: Expression) throws -> IRValue {
     if let expression = expression as? BoolType {
       return LLVM.IntType.int1.constant(expression.value ? 1 : 0)
@@ -78,11 +95,9 @@ class IRGen {
     } else if let expression = expression as? StringType {
       return LLVM.ArrayType.constant(string: expression.value)
     } else if let expression = expression as? FunctionCallExpression {
-      guard let funcSignature = signature(for: expression.name) else {
+      
+      guard let funcSignature = lookup(for: expression.name) else {
         throw IRError.unknownFunction(expression.name)
-      }
-      guard funcSignature.arguments.count == expression.arguments.count else {
-        throw IRError.arityMismatch(funcSignature.name, expected: funcSignature.arguments.count, got: expression.arguments.count)
       }
       
       let function = emitFunctionSignature(funcSignature)
@@ -90,9 +105,11 @@ class IRGen {
       
       return builder.buildCall(function, args: callArgs)
     } else if let expression = expression as? VariableDeclaration {
+      
       guard let param = parameterValues[expression.name] else {
         throw IRError.unknownVariable(expression.name)
       }
+      
       return param
     } else if let expression = expression as? BinaryOperatorExpression {
       let lhsVal = try emitExpression(expression.lhs)
@@ -112,37 +129,51 @@ class IRGen {
     } else if let expression = expression as? ReturnStatement {
       let retValue = try emitExpression(expression.value)
       return builder.buildRet(retValue)
+      
     } else if let expression = expression as? AssignmentExpression {
       let value = try emitExpression(expression.value)
       let type = getIRType(for: expression.variable.type)
       let name = expression.variable.name
       let local = builder.buildAlloca(type: type, name: name)
       let storedRef = builder.buildStore(value, to: local)
+      
       addLocalParam(name: name, storedRef: local)
       return storedRef
     } else if let expression = expression as? PrintStatement {
       let printFunc = emitPrintf()
+      
       if let e = expression.arguments.first as? PropertyAccessExpression {
         let ref = builder.buildLoad(localParams[e.name]!)
-        let formatString = builder.buildGlobalStringPtr("%d\n")
+        let formatString = builder.buildGlobalStringPtr("%d\n", name: "PRINTF_DEC")
         return builder.buildCall(printFunc, args: [formatString, ref])
+      } else if let typeExpr = expression.arguments.first as? Type {
+        switch typeExpr {
+        case let stringType as StringType:
+          let ref = builder.buildGlobalStringPtr(stringType.value.replacingOccurrences(of: "\"", with: ""))
+          let formatString = builder.buildGlobalStringPtr("%s\n", name: "PRINTF_STR")
+          return builder.buildCall(printFunc, args: [formatString, ref])
+          default: break
+        }
       }
+      
     } else if let expression = expression as? PropertyAccessExpression {
+      
       if let value = parameterValues[expression.name] {
         return value
       } else if let value = localParams[expression.name] {
         return builder.buildLoad(value)
       }
-      throw IRError.unknownVariable(expression.name)
     }
     
     throw IRError.unsupportedExpression
   }
   
+  /// Append a local parameter to the parameter map
   func addLocalParam(name: String, storedRef: IRValue) {
     localParams[name] = storedRef
   }
   
+  /// Emit LLVM IR for a function signature
   func emitFunctionSignature(_ signature: FunctionSignature) -> Function {
     
     if let function = module.function(named: signature.name) {
@@ -169,6 +200,7 @@ class IRGen {
     return function
   }
   
+  /// Emit LLVM IR for a function declaration
   @discardableResult
   func emitFunctionDeclaration(_ definition: FunctionDeclaration) throws -> Function {
     let function = emitFunctionSignature(definition.signature)
@@ -188,7 +220,7 @@ class IRGen {
       exprs.append(expr)
     }
     
-    if function.name == "main" || definition.signature.returnType.rawName == BuiltinType.void.rawName {
+    if function.name == "main" || definition.signature.returnType == .void {
       builder.buildRetVoid()
     }
     
@@ -197,6 +229,7 @@ class IRGen {
     return function
   }
   
+  /// Emit the LLVM IR for the C printf function
   func emitPrintf() -> Function {
     if let function = module.function(named: "printf") { return function }
     
@@ -204,6 +237,7 @@ class IRGen {
     return builder.addFunction("printf", type: printfType)
   }
   
+  /// Map the built-in type to actual LLVM IR type
   private func getIRType(for typeNode: BuiltinType) -> IRType {
     switch typeNode.rawName {
     case BuiltinType.void.rawName:
