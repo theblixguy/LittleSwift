@@ -17,5 +17,9 @@ public struct VariableDeclaration: Declaration {
   /// The name of the variable
   let name: String
   /// The type of the variable
-  let type: BuiltinType
+  var type: BuiltinType
+  
+  mutating func updateType(to type: BuiltinType) {
+    self.type = type
+  }
 }

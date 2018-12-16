@@ -178,6 +178,14 @@ class Sema {
       throw SemaError.TypeCheck.invalidType
     }
     
+    // If the type of the variable is a placeholder, then update its type to the type of the assignment
+    if case .placeholder = lhs {
+      assignExpr.variable.updateType(to: rhs)
+      
+      // No need to type check as both types are already the same
+      return lhs
+    }
+    
     guard lhs == rhs else {
       throw SemaError.TypeCheck.typeMismatch(expected: lhs, got: rhs)
     }

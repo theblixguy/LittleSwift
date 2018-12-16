@@ -33,6 +33,11 @@ public struct Parser {
     return tokens[currentTokenIndex]
   }
   
+  /// Peek at the next token
+  func peekNextToken() -> Token {
+    return tokens[currentTokenIndex + 1]
+  }
+  
   /// Move to the next token and return the previous token
   mutating func getCurrentTokenAndMoveToNext() -> Token {
     let token = tokens[currentTokenIndex]
@@ -217,6 +222,13 @@ public struct Parser {
     
     guard case let .identifier(id) = getCurrentTokenAndMoveToNext() else {
       throw ParseError.Category.Expectation.identifier
+    }
+    
+    if case .constant(_) = peekNextToken() {
+      consumeToken()
+      let assignedValue = try parseSimpleOrOperatorExpression()
+      let variable = VariableDeclaration(mutability: mutability, name: id, type: .placeholder)
+      return AssignmentExpression(variable: variable, value: assignedValue)
     }
     
     consumeToken()

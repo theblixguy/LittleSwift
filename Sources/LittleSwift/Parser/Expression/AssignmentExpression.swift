@@ -19,7 +19,12 @@ import Foundation
 /// call. For example: `let json: String = networkCall()`
 /// where `networkCall` has a signature of `networkCall()
 /// -> String`.
-public struct AssignmentExpression: Expression {
-  let variable: VariableDeclaration
+public class AssignmentExpression: Expression {
+  var variable: VariableDeclaration
   let value: Expression
+  
+  init(variable: VariableDeclaration, value: Expression) {
+    self.variable = variable
+    self.value = value
+  }
 }

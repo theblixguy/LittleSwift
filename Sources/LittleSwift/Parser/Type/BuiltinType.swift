@@ -21,6 +21,7 @@ extension BuiltinType {
   static let string = BuiltinType(rawName: "String")
   static let bool = BuiltinType(rawName: "Bool")
   static let void = BuiltinType(rawName: "Void")
+  static let placeholder = BuiltinType(rawName: "Placeholder")
 }
 
 /// An extension that adds equatable conformance to `BuiltinTypre`
