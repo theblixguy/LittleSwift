@@ -13,10 +13,10 @@ import Foundation
 public class Parser {
   
   /// The tokens
-  let tokens: [Token]
+  private let tokens: [Token]
   /// The index of the current token. This is the token that the
   /// parser is currently looking at.
-  var currentTokenIndex = 0
+  private var currentTokenIndex = 0
   
   /// The initializer for the class
   init(tokens: [Token]) {
@@ -24,43 +24,45 @@ public class Parser {
   }
   
   /// Returns whether there are still tokens available for parsing
-  func tokensAvailable() -> Bool {
+  private func tokensAvailable() -> Bool {
     return currentTokenIndex < tokens.count
   }
   
   /// Get the current token that the parser is looking at
-  func getCurrentToken() -> Token {
+  private func getCurrentToken() -> Token {
     return tokens[currentTokenIndex]
   }
   
   /// Peek at the next token
-  func peekNextToken() -> Token {
+  private func peekNextToken() -> Token {
     return tokens[currentTokenIndex + 1]
   }
   
   /// Move to the next token and return the previous token
-  func getCurrentTokenAndMoveToNext() -> Token {
+  private func getCurrentTokenAndMoveToNext() -> Token {
     let token = tokens[currentTokenIndex]
     currentTokenIndex += 1
     return token
   }
   
   /// Consume the current token and move to the next token
-  func consumeToken() {
+  private func consumeToken() {
     currentTokenIndex += 1
   }
   
-  func rewindToken(by steps: Int = 1) {
+  /// Decrease the current token index (default by 1)
+  private func rewindToken(by steps: Int = 1) {
     currentTokenIndex -= steps
   }
   
-  func peekLastToken() -> Token {
+  /// Peek at the previous token
+  private func peekLastToken() -> Token {
     return tokens[currentTokenIndex - 1]
   }
   
   /// Get the precedence of the current token. Returns
   /// Int.min if the current token isn't an operator
-  func getCurrentTokenPrecedence() -> Int {
+  private func getCurrentTokenPrecedence() -> Int {
     guard tokensAvailable() else {
       return Int.min
     }
@@ -90,7 +92,7 @@ public class Parser {
   }
   
   /// Parse an expression depending on the current token
-  func parseAnyExpression() throws -> Expression {
+  private func parseAnyExpression() throws -> Expression {
     switch getCurrentToken() {
     case .func:
       return try parseFunctionDeclaration()
@@ -114,13 +116,13 @@ public class Parser {
   
   /// Parse a simple operation and then try parsing a operation expression
   /// with that expression
-  func parseSimpleOrOperatorExpression() throws -> Expression {
+  private func parseSimpleOrOperatorExpression() throws -> Expression {
     let lhs = try parseSimpleExpression()
     return try parseOperatorExpression(expression: lhs)
   }
   
   /// Parse a simple expression (such as identifiers or types)
-  func parseSimpleExpression() throws -> Expression {
+  private func parseSimpleExpression() throws -> Expression {
     switch getCurrentToken() {
     case .identifier(_):
       return try parseFunctionCallOrAnIdentifier()
@@ -146,7 +148,7 @@ public class Parser {
   }
   
   /// Parse an if statement expression
-  func parseIfStatement() throws -> IfStatement {
+  private func parseIfStatement() throws -> IfStatement {
     guard case .if = getCurrentTokenAndMoveToNext() else {
       throw ParseError.Category.Expectation.character("if")
     }
@@ -167,7 +169,7 @@ public class Parser {
   }
   
   /// Parse the function body and return the containing statements
-  func parseFunctionBody() throws -> [Expression] {
+  private func parseFunctionBody() throws -> [Expression] {
     consumeToken()
     
     var statements = [Expression]()
@@ -192,7 +194,7 @@ public class Parser {
   }
   
   /// Parse the return statement
-  func parseReturnStatement() throws -> ReturnStatement {
+  private func parseReturnStatement() throws -> ReturnStatement {
     guard case .return = getCurrentTokenAndMoveToNext() else {
       throw ParseError.Category.Expectation.return
     }
@@ -202,7 +204,7 @@ public class Parser {
   }
   
   /// Parse the print statement
-  func parsePrintStatement() throws -> PrintStatement {
+  private func parsePrintStatement() throws -> PrintStatement {
     guard case .print = getCurrentTokenAndMoveToNext() else {
       throw ParseError.Category.Expectation.print
     }
@@ -212,7 +214,7 @@ public class Parser {
   }
   
   /// Parse a variable declaration or a variable assignment expression
-  func parseVariableDeclarationOrAssignment() throws -> Expression {
+  private func parseVariableDeclarationOrAssignment() throws -> Expression {
     var mutability: DeclarationModifier.Mutation! = nil
     let curToken = getCurrentToken()
     
@@ -254,7 +256,7 @@ public class Parser {
   }
   
   /// Parse a LLVM builtin type
-  func parseType() throws -> BuiltinType {
+  private func parseType() throws -> BuiltinType {
     switch getCurrentTokenAndMoveToNext() {
     case .int: return BuiltinType.integer
     case .float: return BuiltinType.float
@@ -268,7 +270,7 @@ public class Parser {
   }
   
   /// Parse a function declaration
-  func parseFunctionDeclaration() throws -> FunctionDeclaration {
+  private func parseFunctionDeclaration() throws -> FunctionDeclaration {
     guard case .func = getCurrentTokenAndMoveToNext() else {
       throw ParseError.Category.Expectation.function
     }
@@ -279,7 +281,7 @@ public class Parser {
   }
   
   /// Parse a function signature
-  func parseFunctionSignature() throws -> FunctionSignature {
+  private func parseFunctionSignature() throws -> FunctionSignature {
     guard case let .identifier(name) = getCurrentTokenAndMoveToNext() else {
       throw ParseError.Category.Expectation.identifier
     }
@@ -297,7 +299,7 @@ public class Parser {
   }
   
   /// Parse a function's arguments in its signature
-  func parseFunctionSignatureArguments() throws -> [VariableDeclaration] {
+  private func parseFunctionSignatureArguments() throws -> [VariableDeclaration] {
     consumeToken()
     
     var arguments = [VariableDeclaration]()
@@ -322,7 +324,7 @@ public class Parser {
   }
   
   /// Parse the arguments to a function call
-  func parseFunctionCallArguments() throws -> [Expression] {
+  private func parseFunctionCallArguments() throws -> [Expression] {
     consumeToken()
     
     var arguments = [Expression]()
@@ -346,7 +348,7 @@ public class Parser {
   }
   
   /// Parse a function call or an identifier
-  func parseFunctionCallOrAnIdentifier() throws -> Expression {
+  private func parseFunctionCallOrAnIdentifier() throws -> Expression {
     let name = try parseIdentifierValue()
     
     guard case .parensOpen = getCurrentToken() else {
@@ -358,7 +360,7 @@ public class Parser {
   }
   
   /// Parse an operator expression (if possible)
-  func parseOperatorExpression(expression: Expression, precedence: Int = 0) throws -> Expression {
+  private func parseOperatorExpression(expression: Expression, precedence: Int = 0) throws -> Expression {
     var leftExpression = expression
     
     while true {
@@ -385,7 +387,7 @@ public class Parser {
   }
   
   /// Parse parenthesis
-  func parseParenthesis() throws -> Expression {
+  private func parseParenthesis() throws -> Expression {
     guard case .parensOpen = getCurrentTokenAndMoveToNext() else {
       throw ParseError.Category.Expectation.parens(.open)
     }
@@ -400,7 +402,7 @@ public class Parser {
   }
   
   /// Parse a boolean literal
-  func parseBool() throws -> BoolType {
+  private func parseBool() throws -> BoolType {
     guard case let .constant(type, .value(v)) = getCurrentTokenAndMoveToNext(), type == .bool else {
       throw ParseError.Category.Expectation.literal(.bool)
     }
@@ -409,7 +411,7 @@ public class Parser {
   }
   
   /// Parse a integer literal
-  func parseInteger() throws -> Expression {
+  private func parseInteger() throws -> Expression {
     guard case let .constant(type, .value(v)) = getCurrentTokenAndMoveToNext(), type == .int else {
       throw ParseError.Category.Expectation.number
     }
@@ -418,7 +420,7 @@ public class Parser {
   }
   
   /// Parse a float literal
-  func parseFloat() throws -> Expression {
+  private func parseFloat() throws -> Expression {
     guard case let .constant(type, .value(v)) = getCurrentTokenAndMoveToNext(), type == .float else {
       throw ParseError.Category.Expectation.number
     }
@@ -427,7 +429,7 @@ public class Parser {
   }
   
   /// Parse a string literal
-  func parseString() throws -> Expression {
+  private func parseString() throws -> Expression {
     guard case let .constant(type, .value(v)) = getCurrentTokenAndMoveToNext(), type == .string else {
       throw ParseError.Category.Expectation.literal(.string)
     }
@@ -436,7 +438,7 @@ public class Parser {
   }
   
   /// Parse the value of an identifier
-  func parseIdentifierValue() throws -> String {
+  private func parseIdentifierValue() throws -> String {
     guard case let .identifier(value) = getCurrentTokenAndMoveToNext() else {
       throw ParseError.Category.Expectation.identifier
     }
