@@ -124,20 +124,34 @@ class Sema {
     var argTypes: [BuiltinType] = []
     
     // Local function to lookup an argument in scope
-    func lookupArgTypeInScope(arg: PropertyAccessExpression) -> BuiltinType {
+    func lookupArgTypeInScope(arg: PropertyAccessExpression) throws -> BuiltinType {
       let allVariableAssigns = scope.body.compactMap { $0 as? AssignmentExpression }
       
       guard let decl = allVariableAssigns.first(where: { $0.variable.name == arg.name }) else {
-        return BuiltinType.void
+        throw SemaError.TypeCheck.variableNotDeclared(arg.name)
       }
       
       return decl.variable.type
     }
     
+    // Local function to lookup an argument in the signature of the scope
+    func lookupArgInFuncSignature(arg: PropertyAccessExpression) throws -> BuiltinType {
+      
+      guard let decl = scope.signature.arguments.first(where: { $0.name == arg.name }) else {
+        throw SemaError.TypeCheck.variableNotDeclared(arg.name)
+      }
+      
+      return decl.type
+    }
+    
     funcCallExpr.arguments.forEach { expr in
       if let arg = expr as? PropertyAccessExpression {
-        let _type = lookupArgTypeInScope(arg: arg)
-        argTypes.append(_type)
+        
+        if let typeInSig = try? lookupArgInFuncSignature(arg: arg) {
+          argTypes.append(typeInSig)
+        } else if let typeInScope = try? lookupArgTypeInScope(arg: arg) {
+          argTypes.append(typeInScope)
+        }
       }
       
       guard let _type = expr as? Type, let mappedType = mapSwiftTypeToBuiltinType(_type) else { return }
