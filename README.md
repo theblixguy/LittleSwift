@@ -13,14 +13,14 @@ LittleSwift is a simple compiler written in Swift that can compile Swift code. I
     - Functions and variables
     - Primitive types (`String`, `Int`, `Float`, `Void`, `Bool`)
     - Binary operators (`+`, `-`, `*`, `/`)
-    - `print` (only integers at the moment)
+    - `print` (integers only during IRGen)
 - Just-in-time (JIT) compilation
 - Interpreter (REPL)
+- Basic type inference
 
 ### What it can't do?
 
 - Output a binary (only does JIT at the moment)
-- Type inference
 - Support classes, protocols, generics, etc
 - Support other types like `Array` and `List`
 - Module maps
