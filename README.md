@@ -8,7 +8,7 @@ LittleSwift is a simple compiler written in Swift that can compile Swift code. I
 
 ### What can it do?
 
-- Tokenize, Parse, Sema, IRGen
+- Tokenize, Parse, Sema, IRGen, Output Binary
 - Supports a strict subset of Swift grammar
     - Functions and variables
     - Primitive types (`String`, `Int`, `Float`, `Void`, `Bool`)
@@ -21,7 +21,6 @@ LittleSwift is a simple compiler written in Swift that can compile Swift code. I
 
 ### What it can't do?
 
-- Output a binary
 - Support classes, protocols, generics, etc
 - Support other types like `Array` and `List`
 - Module maps
@@ -40,4 +39,18 @@ Refer to the command-line parameters. You can simply invoke the compiler without
 
 ## License
 
-GPL v3
+LittleSwift
+Copyright (C) 2018 Suyash Srijan
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
