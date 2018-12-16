@@ -6,6 +6,8 @@ LittleSwift is a simple compiler written in Swift that can compile Swift code. I
 
 **Note:** It's a basic compiler at the moment and it's not meant for production use!
 
+## Features
+
 ### What can it do?
 
 - Tokenize, Parse, Sema, IRGen, Output Binary
@@ -27,6 +29,34 @@ LittleSwift is a simple compiler written in Swift that can compile Swift code. I
 - Optimizations
 - Many more things...
 
+## Example
+
+```swift
+func main() {
+    print("Hello! This program prints the square root of 5.")
+    
+    let numberToSquare = 5
+    let answer = square(numberToSquare)
+    
+    print("The square root of 5 is: ")
+    print(answer)
+}
+
+func square(number: Int) -> Int {
+    return multiply(number, number)
+}
+
+func multiply(first: Int, second: Int) -> Int {
+    return first * second
+}
+
+// Output:
+//
+// Hello! This program prints the square root of 5.
+// The square root of 5 is:
+// 25
+```
+
 ## Installation
 
 1. Install LLVM 6 (`brew install llvm@6`)
@@ -40,6 +70,7 @@ Refer to the command-line parameters. You can simply invoke the compiler without
 ## License
 
 LittleSwift
+
 Copyright (C) 2018 Suyash Srijan
 
 This program is free software: you can redistribute it and/or modify
@@ -49,8 +80,8 @@ the Free Software Foundation, either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+along with this program. If not, see <http://www.gnu.org/licenses/>.
